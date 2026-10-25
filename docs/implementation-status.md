@@ -24,11 +24,11 @@ Working branch: `engineering/phase-zero-audit`
 - Native Android starter exists, but the Gradle build has not been verified and no real-device testing has been performed.
 - Browser TTS depends on available device/browser voices; this has not been tested on real devices.
 - No lockfile is present, so dependency resolution is not fully reproducible.
-- Tests, typecheck, build, vulnerability scan and real-device tests have not been run successfully in this environment. The configured CI run must be checked.
+- GitHub Actions CI run 85 succeeded: domain tests, TypeScript typecheck, web JavaScript syntax and manifest JSON validation passed. npm install reported zero known vulnerabilities. Android build run 36 succeeded and produced a debug APK artifact. No real-device tests or independent licence scan have been performed.
 - Not ready for public release or for claiming a ticket has won.
 
 ## Next engineering steps
-1. Review and merge the Phase Zero audit branch only after CI evidence is available.
+1. Review the Phase Zero pull request and test the debug APK on real devices before considering a merge.
 2. Generate and commit a lockfile in a network-enabled environment; review dependencies and licences.
 3. Build a reviewed catalogue of supported lotteries and official rules with sources and effective dates.
 4. Obtain source-access permission and implement one connector with parser fixtures, freshness policy and correction handling.
