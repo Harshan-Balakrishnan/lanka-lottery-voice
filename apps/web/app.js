@@ -14,6 +14,7 @@ const translations = {
     footerText: "Lanka Lottery Voice is an independent helper concept, not an official NLB or DLB service. A possible match is not proof of a payable prize.",
     statusTitle: "We cannot check this ticket yet.", statusMessage: "Your details have been recorded on this screen, but live official results and the verified rules for this lottery are not connected. No win or loss conclusion has been made.",
     statusMeta: "No ticket image is uploaded to a server by this prototype. The final result must be confirmed with the relevant official board.",
+    offlineMessage: "You appear to be offline. This prototype cannot check lottery results offline; use the official board website when connected.",
     speechUnavailable: "A voice for this language is not available on this device. Please read the message on screen.",
     noMessage: "There is no result message to read yet.", speechStarted: "Reading the message aloud, if your device supports this language."
   },
@@ -31,6 +32,7 @@ const translations = {
     footerText: "Lanka Lottery Voice යනු ස්වාධීන උපකාරක සංකල්පයකි; එය NLB හෝ DLB නිල සේවාවක් නොවේ.",
     statusTitle: "මෙම පத்தை இன்னும் சரிபார்க்க முடியாது.", statusMessage: "සජීවී නිල ප්‍රතිඵල සහ මෙම ලොතරැයියේ තහවුරු කළ නීති තවම සම්බන්ධ කර නැත. ජයග්‍රහණයක් හෝ පරාජයක් තීරණය කර නැත.",
     statusMeta: "මෙම ආදර්ශය ඡායාරූපය සේවාදායකයකට යවන්නේ නැත. අවසාන ප්‍රතිඵලය නිල මණ්ඩලයෙන් තහවුරු කරන්න.",
+    offlineMessage: "ඔබ අන්තර්ජාලයට සම්බන්ධ වී නොමැති බව පෙනේ. මෙම ආදර්ශයට නොබැඳිව ප්‍රතිඵල පරීක්ෂා කළ නොහැක.",
     speechUnavailable: "මෙම උපාංගයේ මෙම භාෂාව සඳහා හඬක් නොමැත. තිරයේ ඇති පණිවිඩය කියවන්න.", noMessage: "කියවීමට ප්‍රතිඵල පණිවිඩයක් නැත.", speechStarted: "ඔබේ උපාංගය සහාය දක්වන්නේ නම් පණිවිඩය කියවනු ඇත."
   },
   ta: {
@@ -47,6 +49,7 @@ const translations = {
     footerText: "Lanka Lottery Voice ஒரு சுயாதீன உதவி மாதிரி; இது NLB அல்லது DLB அதிகாரப்பூர்வ சேவை அல்ல.",
     statusTitle: "இந்தச் சீட்டை இன்னும் சரிபார்க்க முடியாது.", statusMessage: "இந்த லொத்தரிக்கான நேரடி அதிகாரப்பூர்வ முடிவுகளும் சரிபார்க்கப்பட்ட விதிகளும் இன்னும் இணைக்கப்படவில்லை. வெற்றி அல்லது தோல்வி என எந்த முடிவும் கூறப்படவில்லை.",
     statusMeta: "இந்த மாதிரி சீட்டுப் படத்தை சேவையகத்திற்கு பதிவேற்றாது. இறுதி முடிவை அதிகாரப்பூர்வ வாரியத்திடம் உறுதிப்படுத்தவும்.",
+    offlineMessage: "நீங்கள் இணையத்துடன் இணைக்கப்படவில்லை போலத் தெரிகிறது. இந்த மாதிரியில் இணையமின்றி முடிவுகளைச் சரிபார்க்க முடியாது.",
     speechUnavailable: "இந்தச் சாதனத்தில் இந்த மொழிக்கான குரல் இல்லை. திரையில் உள்ள செய்தியை வாசிக்கவும்.", noMessage: "வாசிக்க முடிவு செய்தி இல்லை.", speechStarted: "உங்கள் சாதனம் இந்த மொழியை ஆதரித்தால் செய்தி குரலில் வாசிக்கப்படும்."
   }
 };
@@ -80,11 +83,21 @@ function setLanguage(language) {
   });
 }
 
+function updateNetworkStatus() {
+  const status = document.querySelector("#network-status");
+  const dictionary = translations[languageSelect.value] || translations.en;
+  status.hidden = navigator.onLine;
+  status.textContent = navigator.onLine ? "" : dictionary.offlineMessage;
+}
+
 languageSelect.addEventListener("change", () => {
   if ("speechSynthesis" in window) window.speechSynthesis.cancel();
   speechStatus.textContent = "";
   setLanguage(languageSelect.value);
+  updateNetworkStatus();
 });
+window.addEventListener("online", updateNetworkStatus);
+window.addEventListener("offline", updateNetworkStatus);
 
 photoInput.addEventListener("change", () => {
   const file = photoInput.files && photoInput.files[0];
@@ -195,6 +208,7 @@ document.addEventListener("visibilitychange", () => {
 });
 
 setLanguage(languageSelect.value);
+updateNetworkStatus();
 
 if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
   window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js").catch(() => {}));
