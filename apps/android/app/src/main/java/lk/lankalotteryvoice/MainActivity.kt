@@ -183,10 +183,14 @@ class MainActivity : Activity() {
 
     private fun choosePhotoFromGallery() {
         val intent = Intent(Intent.ACTION_GET_CONTENT).apply { type = "image/*" }
-        startActivityForResult(
-            Intent.createChooser(intent, getString(R.string.photo_button)),
-            REQUEST_GALLERY
-        )
+        try {
+            startActivityForResult(
+                Intent.createChooser(intent, getString(R.string.photo_button)),
+                REQUEST_GALLERY
+            )
+        } catch (_: ActivityNotFoundException) {
+            Toast.makeText(this, R.string.image_invalid, Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun capturePhotoWithSystemCamera() {
@@ -220,6 +224,7 @@ class MainActivity : Activity() {
         } catch (_: Exception) {
             capturedPhotoFile?.delete()
             capturedPhotoFile = null
+            capturedPhotoUri = null
             pendingCameraUri = null
             Toast.makeText(this, R.string.image_invalid, Toast.LENGTH_LONG).show()
         }
