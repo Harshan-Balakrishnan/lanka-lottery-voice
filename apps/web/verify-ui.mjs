@@ -21,7 +21,7 @@ for (const language of ["en", "si", "ta"]) {
 }
 
 assert.match(html, /id="photo-feedback"[^>]*role="status"/, "Photo validation needs an accessible status region");
-assert.match(app, /MAX_PHOTO_BYTES = 10 * 1024 * 1024/, "Photo byte limit must be enforced");
+assert.match(app, /MAX_PHOTO_BYTES = 10 \\* 1024 \\* 1024/, "Photo byte limit must be enforced");
 assert.match(app, /MAX_PHOTO_PIXELS = 20_000_000/, "Decoded pixel limit must be enforced");
 assert.match(app, /URL\.revokeObjectURL/, "Temporary image URLs must be released");
 assert.match(app, /form\.dataset\.submitted === "true"/, "Dynamic status must be re-localized after language changes");
