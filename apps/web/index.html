@@ -10,7 +10,7 @@
   <title>Lanka Lottery Voice — Ticket Helper</title>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to ticket helper</a>
+  <a class="skip-link" href="#main" data-i18n="skipLink">Skip to ticket helper</a>
   <header class="site-header">
     <div class="brand-mark" aria-hidden="true">LV</div>
     <div>
@@ -45,11 +45,11 @@
         <div class="board-options">
           <label class="board-option">
             <input type="radio" name="board" value="NLB" checked>
-            <span class="board-card"><strong>NLB</strong><small>National Lotteries Board</small></span>
+            <span class="board-card"><strong>NLB</strong><small data-i18n="nlbName">National Lotteries Board</small></span>
           </label>
           <label class="board-option">
             <input type="radio" name="board" value="DLB">
-            <span class="board-card"><strong>DLB</strong><small>Development Lotteries Board</small></span>
+            <span class="board-card"><strong>DLB</strong><small data-i18n="dlbName">Development Lotteries Board</small></span>
           </label>
         </div>
       </fieldset>
@@ -69,6 +69,7 @@
         <p class="field-help" data-i18n="photoHelp">Place the ticket flat in good light. Keep all numbers and letters in the frame.</p>
         <label class="upload-button" for="ticket-photo"><span aria-hidden="true">📷</span> <span data-i18n="photoButton">Take photo / Choose photo</span></label>
         <input id="ticket-photo" type="file" accept="image/*" capture="environment">
+        <p id="photo-status" class="field-help" role="status"></p>
         <div id="photo-preview" class="photo-preview" hidden>
           <img id="preview-image" alt="Preview of selected ticket photo">
           <button id="remove-photo" type="button" class="text-button" data-i18n="removePhoto">Remove photo</button>
@@ -88,7 +89,7 @@
         <input id="confirm-details" type="checkbox" required>
         <span data-i18n="confirmText">I checked the details above against my ticket.</span>
       </label>
-      <button class="primary-button" type="submit" data-i18n="checkButton">Check official result status</button>
+      <button class="primary-button" type="submit" data-i18n="checkButton">Review ticket details</button>
     </form>
 
     <section id="result-panel" class="panel result-panel" aria-live="polite" aria-atomic="true">
@@ -97,7 +98,10 @@
         <h2 data-i18n="resultTitle">Your result status</h2>
         <p id="result-message" data-i18n="resultInitial">Enter your ticket details above. We will explain what can and cannot be checked.</p>
         <p class="result-meta" id="result-meta" data-i18n="resultMeta">Official results connection: not available in this prototype.</p>
-        <button id="speak-result" class="secondary-button" type="button" data-i18n="speakButton">Read this aloud</button>
+        <div class="speech-controls">
+          <button id="speak-result" class="secondary-button" type="button" data-i18n="speakButton">Read this aloud</button>
+          <button id="stop-speech" class="secondary-button" type="button" data-i18n="stopSpeech">Stop reading</button>
+        </div>
         <p id="speech-status" class="field-help" role="status"></p>
       </div>
     </section>
@@ -106,8 +110,8 @@
       <h2 data-i18n="helpTitle">Need help?</h2>
       <p data-i18n="helpText">Ask someone you trust to help read the printed details. For the final result and prize confirmation, use the relevant board’s official channel.</p>
       <div class="official-links">
-        <a href="https://www.nlb.lk/" target="_blank" rel="noopener noreferrer">NLB official website ↗</a>
-        <a href="https://www.dlb.lk/" target="_blank" rel="noopener noreferrer">DLB official website ↗</a>
+        <a href="https://www.nlb.lk/" target="_blank" rel="noopener noreferrer" data-i18n="nlbLink">NLB official website ↗</a>
+        <a href="https://www.dlb.lk/" target="_blank" rel="noopener noreferrer" data-i18n="dlbLink">DLB official website ↗</a>
       </div>
     </section>
   </main>
