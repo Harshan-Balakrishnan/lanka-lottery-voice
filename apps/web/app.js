@@ -30,7 +30,7 @@ const translations = {
     resultInitial: "ඉහත ඔබේ පතේ විස්තර ඇතුළත් කරන්න.", resultMeta: "නිල ප්‍රතිඵල සම්බන්ධතාව: මෙම ආදර්ශයේ නොමැත.",
     speakButton: "හඬින් කියවන්න", helpTitle: "උදව් අවශ්‍යද?", helpText: "මුද්‍රිත විස්තර කියවීමට ඔබ විශ්වාස කරන අයෙකුගෙන් උදව් ඉල්ලන්න. අවසාන ප්‍රතිඵලය අදාළ මණ්ඩලයෙන් තහවුරු කරන්න.",
     footerText: "Lanka Lottery Voice යනු ස්වාධීන උපකාරක සංකල්පයකි; එය NLB හෝ DLB නිල සේවාවක් නොවේ.",
-    statusTitle: "මෙම පத்தை இன்னும் சரிபார்க்க முடியாது.", statusMessage: "සජීවී නිල ප්‍රතිඵල සහ මෙම ලොතරැයියේ තහවුරු කළ නීති තවම සම්බන්ධ කර නැත. ජයග්‍රහණයක් හෝ පරාජයක් තීරණය කර නැත.",
+    statusTitle: "මෙම ලොතරැයි පත තවම පරීක්ෂා කළ නොහැක.", statusMessage: "සජීවී නිල ප්‍රතිඵල සහ මෙම ලොතරැයියේ තහවුරු කළ නීති තවම සම්බන්ධ කර නැත. ජයග්‍රහණයක් හෝ පරාජයක් තීරණය කර නැත.",
     statusMeta: "මෙම ආදර්ශය ඡායාරූපය සේවාදායකයකට යවන්නේ නැත. අවසාන ප්‍රතිඵලය නිල මණ්ඩලයෙන් තහවුරු කරන්න.",
     offlineMessage: "ඔබ අන්තර්ජාලයට සම්බන්ධ වී නොමැති බව පෙනේ. මෙම ආදර්ශයට නොබැඳිව ප්‍රතිඵල පරීක්ෂා කළ නොහැක.",
     speechUnavailable: "මෙම උපාංගයේ මෙම භාෂාව සඳහා හඬක් නොමැත. තිරයේ ඇති පණිවිඩය කියවන්න.", noMessage: "කියවීමට ප්‍රතිඵල පණිවිඩයක් නැත.", speechStarted: "ඔබේ උපාංගය සහාය දක්වන්නේ නම් පණිවිඩය කියවනු ඇත."
@@ -72,15 +72,16 @@ function setLanguage(language) {
   document.querySelector("#ticket-numbers").placeholder = dictionary.numbersPlaceholder;
   document.querySelector("#ticket-letters").placeholder = dictionary.lettersPlaceholder;
   previewImage.alt = dictionary.previewAlt;
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    const key = element.dataset.i18n;
+    if (dictionary[key]) element.textContent = dictionary[key];
+  });
+  // Apply dynamic status text after static translations so data-i18n never overwrites it.
   if (form.dataset.submitted === "true") {
     document.querySelector("#result-panel h2").textContent = dictionary.statusTitle;
     resultMessage.textContent = dictionary.statusMessage;
     resultMeta.textContent = dictionary.statusMeta;
   }
-  document.querySelectorAll("[data-i18n]").forEach((element) => {
-    const key = element.dataset.i18n;
-    if (dictionary[key]) element.textContent = dictionary[key];
-  });
 }
 
 function updateNetworkStatus() {
