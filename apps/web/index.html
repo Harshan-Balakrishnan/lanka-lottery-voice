@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#123c75">
   <meta name="description" content="A simple, accessible Sri Lankan lottery ticket helper for NLB and DLB.">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' blob:; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="stylesheet" href="./styles.css">
   <title>Lanka Lottery Voice — Ticket Helper</title>
@@ -33,6 +35,7 @@
       <p class="eyebrow" data-i18n="stepLabel">YOUR TICKET, MADE SIMPLE</p>
       <h2 data-i18n="welcomeTitle">Let’s check your lottery ticket together.</h2>
       <p data-i18n="welcomeText">Choose the lottery board, add a photo or enter the printed details, and confirm what you can read.</p>
+      <p id="network-status" class="field-help" role="status" hidden></p>
       <div class="trust-note" role="note">
         <span aria-hidden="true">ⓘ</span>
         <p data-i18n="trustNote">This prototype is not connected to live official results yet. It will not tell you that you have won or lost.</p>
