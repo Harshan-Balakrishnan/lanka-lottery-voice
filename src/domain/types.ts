@@ -63,6 +63,7 @@ export interface RuleSet {
 export type CannotVerifyReason =
   | "missing_result"
   | "unverified_result"
+  | "source_unavailable"
   | "conflicting_sources"
   | "corrected_or_superseded"
   | "wrong_draw"
