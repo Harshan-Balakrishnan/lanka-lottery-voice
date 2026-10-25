@@ -39,3 +39,7 @@ Until the boards confirm an authorised machine-readable feed:
 - Publicly indexed DLB procurement document mentioning an API for third parties: https://www.dlb.lk/front_attachment/1572254877LMS_Bid_Document.pdf
 
 Last reviewed: 2026-10-25. This document is a technical research note, not legal advice or proof of API authorisation.
+
+## Practical next step
+
+Use [`official-results-api-access-request.md`](./official-results-api-access-request.md) to request an authorised machine-readable feed from each board. Do not activate an automated connector until permission, documentation, schema, correction policy, and test access are confirmed.
