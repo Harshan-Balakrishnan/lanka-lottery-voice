@@ -32,7 +32,7 @@ Not implemented or verified:
 
 ## Run locally
 
-Requires Node.js 20 or newer.
+Requires Node.js 20.19+ or 22.12+.
 
 ```bash
 npm install
