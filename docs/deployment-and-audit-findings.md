@@ -76,3 +76,15 @@ The candidate deployment is `READY`, but that alone does not verify browser rend
 - Add CI regression checks for translations, safe result messaging, photo limits, object URL cleanup, external link protections, cache scope, JavaScript syntax and PWA manifest validity.
 
 These changes do not add OCR, fetch results, establish legal permission, or make the application production-ready. The branch must pass GitHub Actions and a real browser/device review before acceptance.
+
+
+## Sri Lankan data-protection law — current-source caution
+
+The Data Protection Authority's official downloads page lists both the **Personal Data Protection Act No. 9 of 2022**, the **Personal Data Protection (Amendment) Act No. 22 of 2025**, and **Extraordinary Gazette No. 2498/16 dated 22 July 2026**:
+- https://www.dpa.gov.lk/guidelines.php
+- Amendment Act PDF: https://www.dpa.gov.lk/acts/22-2025_E_251104_201549.pdf
+- Gazette 2498/16 PDF: https://www.dpa.gov.lk/Gazet/2498-16_E.pdf
+
+The 2025 amendment changed the commencement mechanism so provisions (other than the amendment's own commencement provision) come into operation on dates appointed by Gazette order. The DPA's older background page still describes the earlier 18 March 2025 timetable, so it must not be relied on alone as the current commencement position. The Gazette PDF was listed by the DPA but could not be reliably retrieved in this audit; therefore, this audit does **not** claim a definitive current commencement date or a legal-compliance conclusion.
+
+Before any server-side image upload, analytics, account system, or third-party OCR is introduced, obtain and review the operative Gazette/order and current DPA guidance with qualified Sri Lankan counsel. Map controller/processor roles, purposes and lawful basis, notices and user rights, security controls, deletion/retention, incident response, processor contracts and any cross-border transfers. The current prototype keeps selected ticket photos local and has no result backend, but browser hosting/standard infrastructure logs may still exist outside the app's own code; do not promise zero platform-side processing.
