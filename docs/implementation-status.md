@@ -21,7 +21,7 @@ Working branch: `engineering/phase-zero-audit`
 - No live results are fetched or cached; the prototype never issues a real ticket verdict.
 - No OCR is performed on ticket photos.
 - No production backend, database, authentication, admin console, monitoring or secrets manager.
-- Native Android starter exists, but the Gradle build has not been verified and no real-device testing has been performed.
+- Native Android starter builds successfully in GitHub Actions; no real-device testing has been performed.
 - Browser TTS depends on available device/browser voices; this has not been tested on real devices.
 - No lockfile is present, so dependency resolution is not fully reproducible.
 - GitHub Actions CI run 85 succeeded: domain tests, TypeScript typecheck, web JavaScript syntax and manifest JSON validation passed. npm install reported zero known vulnerabilities. Android build run 36 succeeded and produced a debug APK artifact. No real-device tests or independent licence scan have been performed.
