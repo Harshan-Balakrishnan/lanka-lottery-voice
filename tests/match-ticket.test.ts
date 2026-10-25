@@ -67,7 +67,8 @@ describe("checkTicket safety gates", () => {
   });
 
   it("requires a rule set matching the exact lottery and version", () => {
-    expect(checkTicket(request({ ruleSet: undefined })))
+    const { ruleSet: _omittedRuleSet, ...withoutRuleSet } = request();
+    expect(checkTicket(withoutRuleSet))
       .toEqual({ status: "cannot_check", reason: "rule_missing" });
     expect(checkTicket(request({ ruleSet: { ...ruleSet, version: "wrong-version" } })))
       .toEqual({ status: "cannot_check", reason: "rule_missing" });
