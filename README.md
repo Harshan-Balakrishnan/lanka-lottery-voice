@@ -15,7 +15,7 @@ Implemented:
 Not implemented or verified:
 - No live NLB/DLB results API or authorised automated connector.
 - No production backend, database, authentication, OCR or admin console.
-- No native Android application.
+- An initial native Android Kotlin/XML Views prototype exists under `apps/android`, but it has not been build-verified on a device.
 - No verified production lottery rule sets.
 - Tests/build/security scans have not been verified as passing in this environment.
 - No production deployment is verified.
