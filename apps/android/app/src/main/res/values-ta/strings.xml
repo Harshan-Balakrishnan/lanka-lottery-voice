@@ -41,4 +41,5 @@
     <string name="open_nlb">NLB அதிகாரப்பூர்வ இணையதளத்தைத் திறக்கவும்</string>
     <string name="open_dlb">DLB அதிகாரப்பூர்வ இணையதளத்தைத் திறக்கவும்</string>
     <string name="independent_notice">இது ஒரு சுயாதீன உதவி மாதிரி; NLB அல்லது DLB அதிகாரப்பூர்வ சேவை அல்ல. பொருத்தம் தெரிகிறது என்பதால் பரிசு உறுதி ஆகாது.</string>
+    <string name="browser_unavailable">இந்த இணைப்பைத் திறக்க உலாவி செயலி இல்லை.</string>
 </resources>
