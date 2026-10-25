@@ -38,6 +38,7 @@ export function checkTicket(request: MatchRequest): MatchOutcome {
   const provenance = result.provenance;
   switch (provenance.verification) {
     case "VERIFIED_BUT_OLD":
+      return { status: "RESULT_NOT_CURRENT", explanationKey: "result.not_current" };
     case "SOURCE_UNAVAILABLE":
       return { status: "CANNOT_VERIFY", reason: "source_unavailable" };
     case "CONFLICTING_SOURCES":
