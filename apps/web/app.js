@@ -1,6 +1,6 @@
 const translations = {
   en: {
-    tagline: "A simpler way to understand your ticket.", languageLabel: "Language", languageAriaLabel: "Choose language", lotteryPlaceholder: "Type the name on your ticket", numbersPlaceholder: "Enter numbers exactly as printed", lettersPlaceholder: "Enter letters exactly as printed", photoTooLarge: "This image is too large. Choose an image under 10 MB.", checkButton: "Review ticket details", stopSpeech: "Stop reading", stepLabel: "YOUR TICKET, MADE SIMPLE",
+    tagline: "A simpler way to understand your ticket.", languageLabel: "Language", languageAriaLabel: "Choose language", lotteryPlaceholder: "Type the name on your ticket", numbersPlaceholder: "Enter numbers exactly as printed", lettersPlaceholder: "Enter letters exactly as printed", photoTooLarge: "This image is too large. Choose an image under 10 MB.", photoInvalid: "This file could not be previewed as an image. Choose a different photo.", skipLink: "Skip to ticket helper", nlbName: "National Lotteries Board", dlbName: "Development Lotteries Board", nlbLink: "NLB official website ↗", dlbLink: "DLB official website ↗", previewAlt: "Preview of selected ticket photo", checkButton: "Review ticket details", stopSpeech: "Stop reading", stepLabel: "YOUR TICKET, MADE SIMPLE",
     welcomeTitle: "Let’s check your lottery ticket together.", welcomeText: "Choose the lottery board, add a photo or enter the printed details, and confirm what you can read.",
     trustNote: "This prototype is not connected to live official results yet. It will not tell you that you have won or lost.",
     boardLegend: "1. Which board issued your ticket?", lotteryLabel: "Lottery name (as printed)", drawDateLabel: "Draw date (if printed)",
@@ -18,7 +18,7 @@ const translations = {
     noMessage: "There is no result message to read yet.", speechStarted: "Reading the message aloud, if your device supports this language."
   },
   si: {
-    tagline: "ඔබේ ලොතරැයි පත තේරුම් ගැනීමට පහසු ක්‍රමයක්.", languageLabel: "භාෂාව", languageAriaLabel: "භාෂාව තෝරන්න", lotteryPlaceholder: "පතේ ඇති නම ඇතුළත් කරන්න", numbersPlaceholder: "පතේ ඇති අංක ඒ ආකාරයෙන්ම ඇතුළත් කරන්න", lettersPlaceholder: "පතේ ඇති අකුරු ඇතුළත් කරන්න", photoTooLarge: "මෙම රූපය විශාල වැඩියි. MB 10 ට අඩු රූපයක් තෝරන්න.", checkButton: "පතේ විස්තර නැවත පරීක්ෂා කරන්න", stopSpeech: "කියවීම නවත්වන්න", stepLabel: "ඔබේ ලොතරැයි පත පහසුවෙන්",
+    tagline: "ඔබේ ලොතරැයි පත තේරුම් ගැනීමට පහසු ක්‍රමයක්.", languageLabel: "භාෂාව", languageAriaLabel: "භාෂාව තෝරන්න", lotteryPlaceholder: "පතේ ඇති නම ඇතුළත් කරන්න", numbersPlaceholder: "පතේ ඇති අංක ඒ ආකාරයෙන්ම ඇතුළත් කරන්න", lettersPlaceholder: "පතේ ඇති අකුරු ඇතුළත් කරන්න", photoTooLarge: "මෙම රූපය විශාල වැඩියි. MB 10 ට අඩු රූපයක් තෝරන්න.", photoInvalid: "මෙම ගොනුව රූපයක් ලෙස පෙන්විය නොහැක. වෙනත් ඡායාරූපයක් තෝරන්න.", skipLink: "පත පරීක්ෂා කිරීමට යන්න", nlbName: "ජාතික ලොතරැයි මණ්ඩලය", dlbName: "සංවර්ධන ලොතරැයි මණ්ඩලය", nlbLink: "NLB නිල වෙබ් අඩවිය ↗", dlbLink: "DLB නිල වෙබ් අඩවිය ↗", previewAlt: "තෝරාගත් ලොතරැයි පතේ ඡායාරූප පෙරදසුන", checkButton: "පතේ විස්තර නැවත පරීක්ෂා කරන්න", stopSpeech: "කියවීම නවත්වන්න", stepLabel: "ඔබේ ලොතරැයි පත පහසුවෙන්",
     welcomeTitle: "ඔබේ ලොතරැයි පත එකට පරීක්ෂා කරමු.", welcomeText: "මණ්ඩලය තෝරන්න. ඡායාරූපයක් එක් කරන්න හෝ මුද්‍රිත විස්තර ඇතුළත් කර තහවුරු කරන්න.",
     trustNote: "මෙම ආදර්ශය තවමත් නිල සජීවී ප්‍රතිඵලවලට සම්බන්ධ නැත. ඔබ දිනූ බව හෝ පැරදුණු බව මෙය නොකියයි.",
     boardLegend: "1. ඔබේ පත නිකුත් කළ මණ්ඩලය කුමක්ද?", lotteryLabel: "ලොතරැයියේ නම", drawDateLabel: "දිනුම් ඇදීමේ දිනය (තිබේ නම්)",
@@ -34,7 +34,7 @@ const translations = {
     speechUnavailable: "මෙම උපාංගයේ මෙම භාෂාව සඳහා හඬක් නොමැත. තිරයේ ඇති පණිවිඩය කියවන්න.", noMessage: "කියවීමට ප්‍රතිඵල පණිවිඩයක් නැත.", speechStarted: "ඔබේ උපාංගය සහාය දක්වන්නේ නම් පණිවිඩය කියවනු ඇත."
   },
   ta: {
-    tagline: "உங்கள் லொத்தர் சீட்டை எளிதாகப் புரிந்துகொள்ளுங்கள்.", languageLabel: "மொழி", languageAriaLabel: "மொழியைத் தேர்ந்தெடுக்கவும்", lotteryPlaceholder: "சீட்டில் உள்ள பெயரை உள்ளிடவும்", numbersPlaceholder: "அச்சிடப்பட்ட எண்களை அப்படியே உள்ளிடவும்", lettersPlaceholder: "அச்சிடப்பட்ட எழுத்துகளை உள்ளிடவும்", photoTooLarge: "இந்தப் படம் மிகப் பெரியது. 10 MB-க்கு குறைவான படத்தைத் தேர்ந்தெடுக்கவும்.", checkButton: "சீட்டு விவரங்களை மீண்டும் சரிபார்க்கவும்", stopSpeech: "வாசிப்பதை நிறுத்தவும்", stepLabel: "உங்கள் சீட்டை எளிமையாகச் சரிபார்க்கலாம்",
+    tagline: "உங்கள் லொத்தர் சீட்டை எளிதாகப் புரிந்துகொள்ளுங்கள்.", languageLabel: "மொழி", languageAriaLabel: "மொழியைத் தேர்ந்தெடுக்கவும்", lotteryPlaceholder: "சீட்டில் உள்ள பெயரை உள்ளிடவும்", numbersPlaceholder: "அச்சிடப்பட்ட எண்களை அப்படியே உள்ளிடவும்", lettersPlaceholder: "அச்சிடப்பட்ட எழுத்துகளை உள்ளிடவும்", photoTooLarge: "இந்தப் படம் மிகப் பெரியது. 10 MB-க்கு குறைவான படத்தைத் தேர்ந்தெடுக்கவும்.", photoInvalid: "இந்தக் கோப்பை படமாகக் காட்ட முடியவில்லை. வேறு படத்தைத் தேர்ந்தெடுக்கவும்.", skipLink: "சீட்டு உதவிக்குச் செல்லவும்", nlbName: "தேசிய லொத்தர் வாரியம்", dlbName: "அபிவிருத்தி லொத்தர் வாரியம்", nlbLink: "NLB அதிகாரப்பூர்வ இணையதளம் ↗", dlbLink: "DLB அதிகாரப்பூர்வ இணையதளம் ↗", previewAlt: "தேர்ந்தெடுக்கப்பட்ட லொத்தர் சீட்டுப் படத்தின் முன்னோட்டம்", checkButton: "சீட்டு விவரங்களை மீண்டும் சரிபார்க்கவும்", stopSpeech: "வாசிப்பதை நிறுத்தவும்", stepLabel: "உங்கள் சீட்டை எளிமையாகச் சரிபார்க்கலாம்",
     welcomeTitle: "உங்கள் லொத்தர் சீட்டை ஒன்றாகச் சரிபார்ப்போம்.", welcomeText: "வாரியத்தைத் தேர்ந்தெடுத்து, படத்தைச் சேர்க்கவும் அல்லது அச்சிடப்பட்ட விவரங்களை உள்ளிட்டு உறுதிப்படுத்தவும்.",
     trustNote: "இந்த மாதிரி இன்னும் அதிகாரப்பூர்வ நேரடி முடிவுகளுடன் இணைக்கப்படவில்லை. நீங்கள் வென்றீர்கள் அல்லது தோற்றீர்கள் என்று இது கூறாது.",
     boardLegend: "1. உங்கள் சீட்டை வழங்கிய வாரியம் எது?", lotteryLabel: "சீட்டில் உள்ள லொத்தரின் பெயர்", drawDateLabel: "குலுக்கல் தேதி (இருந்தால்)",
@@ -68,13 +68,18 @@ function setLanguage(language) {
   document.querySelector("#lottery-name").placeholder = dictionary.lotteryPlaceholder;
   document.querySelector("#ticket-numbers").placeholder = dictionary.numbersPlaceholder;
   document.querySelector("#ticket-letters").placeholder = dictionary.lettersPlaceholder;
+  previewImage.alt = dictionary.previewAlt;
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     const key = element.dataset.i18n;
     if (dictionary[key]) element.textContent = dictionary[key];
   });
 }
 
-languageSelect.addEventListener("change", () => setLanguage(languageSelect.value));
+languageSelect.addEventListener("change", () => {
+  if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+  speechStatus.textContent = "";
+  setLanguage(languageSelect.value);
+});
 
 photoInput.addEventListener("change", () => {
   const file = photoInput.files && photoInput.files[0];
@@ -91,7 +96,7 @@ photoInput.addEventListener("change", () => {
   if (!file.type.startsWith("image/")) {
     photoInput.value = "";
     photoPreview.hidden = true;
-    photoStatus.textContent = dictionary.photoTooLarge;
+    photoStatus.textContent = dictionary.photoInvalid;
     return;
   }
   if (file.size > 10 * 1024 * 1024) {
@@ -101,6 +106,24 @@ photoInput.addEventListener("change", () => {
     return;
   }
   currentObjectUrl = URL.createObjectURL(file);
+  previewImage.onload = () => {
+    if (previewImage.naturalWidth * previewImage.naturalHeight > 20000000) {
+      URL.revokeObjectURL(currentObjectUrl);
+      currentObjectUrl = null;
+      photoInput.value = "";
+      previewImage.removeAttribute("src");
+      photoPreview.hidden = true;
+      photoStatus.textContent = dictionary.photoTooLarge;
+    }
+  };
+  previewImage.onerror = () => {
+    if (currentObjectUrl) URL.revokeObjectURL(currentObjectUrl);
+    currentObjectUrl = null;
+    photoInput.value = "";
+    previewImage.removeAttribute("src");
+    photoPreview.hidden = true;
+    photoStatus.textContent = dictionary.photoInvalid;
+  };
   previewImage.src = currentObjectUrl;
   photoPreview.hidden = false;
 });
