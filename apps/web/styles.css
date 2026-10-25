@@ -186,3 +186,12 @@ footer { padding-top: .3rem; }
   html { scroll-behavior: auto; }
   .panel, .board-card, .primary-button, .secondary-button, .upload-button, .field input { transition: none !important; }
 }
+
+
+.official-results-shortcuts { display: grid; gap: .65rem; margin: 1.1rem 0; }
+.official-shortcut-title { margin: 0 0 .1rem; font-size: .9rem; font-weight: 800; color: var(--navy); }
+.official-results-shortcuts a { display: flex; align-items: center; gap: .8rem; padding: .8rem; border: 1px solid #d7e4f3; border-radius: .85rem; background: rgb(255 255 255 / 88%); text-decoration: none; color: var(--ink); transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease; }
+.official-results-shortcuts a:hover { transform: translateY(-1px); border-color: #8eadd4; box-shadow: 0 7px 16px rgb(18 60 117 / 8%); }
+.shortcut-board { display: grid; place-items: center; width: 2.7rem; height: 2.7rem; flex: 0 0 auto; border-radius: .8rem; color: #fff; background: linear-gradient(145deg, #123c75, #1e5b9b); font-weight: 900; }
+.official-results-shortcuts a > span:last-child { display: grid; gap: .12rem; }
+.official-results-shortcuts small { color: var(--muted); font-size: .8rem; }
