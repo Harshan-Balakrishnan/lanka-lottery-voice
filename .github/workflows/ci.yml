@@ -28,5 +28,7 @@ jobs:
         run: npm run typecheck
       - name: Check web JavaScript syntax
         run: node --check apps/web/app.js
+      - name: Verify web localization and safety disclosures
+        run: node apps/web/verify-ui.mjs
       - name: Validate web manifest JSON
         run: node -e "JSON.parse(require('node:fs').readFileSync('apps/web/manifest.webmanifest', 'utf8'))"
