@@ -164,7 +164,7 @@ document.querySelector("#speak-result").addEventListener("click", () => {
   const baseLanguage = locale.split("-")[0].toLowerCase();
   const voice = window.speechSynthesis.getVoices().find((candidate) => {
     const candidateLanguage = candidate.lang.toLowerCase();
-    return candidateLanguage === locale.toLowerCase() || candidateLanguage.startsWith(baseLanguage + "-");
+    return candidateLanguage === locale.toLowerCase() || candidateLanguage === baseLanguage || candidateLanguage.startsWith(baseLanguage + "-");
   });
   if (!voice) {
     speechStatus.textContent = dictionary.speechUnavailable;
@@ -187,6 +187,8 @@ document.querySelector("#stop-speech").addEventListener("click", () => {
 document.addEventListener("visibilitychange", () => {
   if (document.hidden && "speechSynthesis" in window) window.speechSynthesis.cancel();
 });
+
+setLanguage(languageSelect.value);
 
 if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
   window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js").catch(() => {}));
