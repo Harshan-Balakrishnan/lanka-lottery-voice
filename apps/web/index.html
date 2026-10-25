@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123c75">
+  <meta name="description" content="A simple, accessible Sri Lankan lottery ticket helper for NLB and DLB.">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Lanka Lottery Voice — Ticket Helper</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to ticket helper</a>
+  <header class="site-header">
+    <div class="brand-mark" aria-hidden="true">LV</div>
+    <div>
+      <p class="eyebrow">SRI LANKA · NLB + DLB</p>
+      <h1>Lanka Lottery Voice</h1>
+      <p class="tagline" data-i18n="tagline">A simpler way to understand your ticket.</p>
+    </div>
+    <label class="language-control">
+      <span data-i18n="languageLabel">Language</span>
+      <select id="language" aria-label="Choose language">
+        <option value="en">English</option>
+        <option value="si">සිංහල</option>
+        <option value="ta">தமிழ்</option>
+      </select>
+    </label>
+  </header>
+
+  <main id="main">
+    <section class="welcome panel">
+      <p class="eyebrow" data-i18n="stepLabel">YOUR TICKET, MADE SIMPLE</p>
+      <h2 data-i18n="welcomeTitle">Let’s check your lottery ticket together.</h2>
+      <p data-i18n="welcomeText">Choose the lottery board, add a photo or enter the printed details, and confirm what you can read.</p>
+      <div class="trust-note" role="note">
+        <span aria-hidden="true">ⓘ</span>
+        <p data-i18n="trustNote">This prototype is not connected to live official results yet. It will not tell you that you have won or lost.</p>
+      </div>
+    </section>
+
+    <form id="ticket-form" class="panel ticket-form">
+      <fieldset>
+        <legend data-i18n="boardLegend">1. Which board issued your ticket?</legend>
+        <div class="board-options">
+          <label class="board-option">
+            <input type="radio" name="board" value="NLB" checked>
+            <span class="board-card"><strong>NLB</strong><small>National Lotteries Board</small></span>
+          </label>
+          <label class="board-option">
+            <input type="radio" name="board" value="DLB">
+            <span class="board-card"><strong>DLB</strong><small>Development Lotteries Board</small></span>
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="field">
+        <label for="lottery-name" data-i18n="lotteryLabel">Lottery name (as printed)</label>
+        <input id="lottery-name" name="lotteryName" autocomplete="off" placeholder="Type the name on your ticket" required>
+      </div>
+
+      <div class="field">
+        <label for="draw-date" data-i18n="drawDateLabel">Draw date (if printed)</label>
+        <input id="draw-date" name="drawDate" type="date">
+      </div>
+
+      <fieldset class="photo-field">
+        <legend data-i18n="photoLegend">2. Take a photo or choose a picture</legend>
+        <p class="field-help" data-i18n="photoHelp">Place the ticket flat in good light. Keep all numbers and letters in the frame.</p>
+        <label class="upload-button" for="ticket-photo"><span aria-hidden="true">📷</span> <span data-i18n="photoButton">Take photo / Choose photo</span></label>
+        <input id="ticket-photo" type="file" accept="image/*" capture="environment">
+        <div id="photo-preview" class="photo-preview" hidden>
+          <img id="preview-image" alt="Preview of selected ticket photo">
+          <button id="remove-photo" type="button" class="text-button" data-i18n="removePhoto">Remove photo</button>
+        </div>
+        <p class="field-help" data-i18n="photoNoOcr">Photo text-reading is not connected yet. Please type the details below and check them carefully.</p>
+      </fieldset>
+
+      <div class="field">
+        <label for="ticket-numbers" data-i18n="numbersLabel">Numbers printed on your ticket</label>
+        <input id="ticket-numbers" name="numbers" inputmode="numeric" autocomplete="off" placeholder="Enter numbers exactly as printed" required>
+      </div>
+      <div class="field">
+        <label for="ticket-letters" data-i18n="lettersLabel">Letters (if any)</label>
+        <input id="ticket-letters" name="letters" autocomplete="off" placeholder="Enter letters exactly as printed">
+      </div>
+      <label class="confirm-row">
+        <input id="confirm-details" type="checkbox" required>
+        <span data-i18n="confirmText">I checked the details above against my ticket.</span>
+      </label>
+      <button class="primary-button" type="submit" data-i18n="checkButton">Check official result status</button>
+    </form>
+
+    <section id="result-panel" class="panel result-panel" aria-live="polite" aria-atomic="true">
+      <div class="result-icon" aria-hidden="true">✓</div>
+      <div>
+        <h2 data-i18n="resultTitle">Your result status</h2>
+        <p id="result-message" data-i18n="resultInitial">Enter your ticket details above. We will explain what can and cannot be checked.</p>
+        <p class="result-meta" id="result-meta" data-i18n="resultMeta">Official results connection: not available in this prototype.</p>
+        <button id="speak-result" class="secondary-button" type="button" data-i18n="speakButton">Read this aloud</button>
+        <p id="speech-status" class="field-help" role="status"></p>
+      </div>
+    </section>
+
+    <section class="panel help-panel">
+      <h2 data-i18n="helpTitle">Need help?</h2>
+      <p data-i18n="helpText">Ask someone you trust to help read the printed details. For the final result and prize confirmation, use the relevant board’s official channel.</p>
+      <div class="official-links">
+        <a href="https://www.nlb.lk/" target="_blank" rel="noopener noreferrer">NLB official website ↗</a>
+        <a href="https://www.dlb.lk/" target="_blank" rel="noopener noreferrer">DLB official website ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p data-i18n="footerText">Lanka Lottery Voice is an independent helper concept, not an official NLB or DLB service. A possible match is not proof of a payable prize.</p>
+  </footer>
+  <script src="./app.js" defer></script>
+</body>
+</html>
