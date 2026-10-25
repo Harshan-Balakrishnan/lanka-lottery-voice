@@ -7,10 +7,11 @@ Status: target architecture for incremental implementation; not a claim that all
 - `src/domain/`: small TypeScript domain layer for ticket/result/rule contracts.
 - `tests/`: Vitest safety-gate tests.
 - `apps/web/`: static responsive web prototype; no API calls or OCR.
-- `.github/workflows/ci.yml`: intended test/type-check workflow.
+- `apps/android/`: native Kotlin + XML Views starter with local photo preview, language resources and optional TTS; no live API or OCR.
+- `.github/workflows/`: web/domain checks and an Android debug-APK build workflow.
 - `docs/`: source and release research.
 
-There is currently no production API, database, source adapter, admin service, or native Android project.
+There is currently no production API, database, source adapter, admin service or production-ready mobile app.
 
 ## Proposed modular monolith
 
