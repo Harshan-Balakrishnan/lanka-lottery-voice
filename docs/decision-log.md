@@ -35,3 +35,9 @@
 - Decision: start with a modular API and pure domain core; do not add microservices before operational need exists.
 - Reason: reduces deployment and maintenance complexity for an early-stage product.
 - Consequence: keep boundaries explicit in code while keeping deployment simple.
+
+## D-007 — Native Android uses Kotlin with XML Views
+- Date: 2026-10-25
+- Decision: use a separate Kotlin Android application with native XML Views, not a WebView and not Jetpack Compose for this initial starter.
+- Reason: native camera intents, platform lifecycle and accessibility are required; XML Views keep the first UI straightforward and compatible with standard Android tooling.
+- Consequence: the Android app is a separate deliverable. It still requires build/device testing, human review of translations, OCR, and the shared API before release.
