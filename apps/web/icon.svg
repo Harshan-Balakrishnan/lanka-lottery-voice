@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Lanka Lottery Voice</title>
+  <rect width="512" height="512" rx="112" fill="#123c75"/>
+  <rect x="54" y="54" width="404" height="404" rx="84" fill="none" stroke="#d8e7ff" stroke-width="12"/>
+  <path d="M151 122v210h130" fill="none" stroke="#fff" stroke-width="36" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M316 175c30 16 30 58 0 74M349 145c54 36 54 98 0 134" fill="none" stroke="#f3c969" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="319" cy="212" r="8" fill="#f3c969"/>
+</svg>
