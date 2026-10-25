@@ -32,4 +32,4 @@ The debug APK is generated under `app/build/outputs/apk/debug/`.
 - Camera access is delegated to the installed system camera app; this app does not request direct camera permission. Gallery selection is user initiated.
 - Camera captures are written to the app cache and deleted when discarded or when the activity finishes. Gallery images are read from the user-selected URI and are not copied to app storage.
 - Sinhala/Tamil text is an initial draft and needs fluent human review before release.
-- A Gradle wrapper is not included yet; the CI workflow installs a fixed Gradle version to build the project. Add a verified wrapper from a network-enabled development environment before distributing source as a standalone project.
+- A Gradle wrapper is not included yet; the CI workflow installs Gradle 8.9 and successfully assembled a debug APK on 2026-10-25 (workflow run 36). The artifact is available from the repository Actions run for 14 days. Add a verified wrapper from a network-enabled development environment before distributing source as a standalone project.
