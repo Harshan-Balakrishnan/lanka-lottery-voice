@@ -41,4 +41,5 @@
     <string name="open_nlb">NLB නිල වෙබ් අඩවිය විවෘත කරන්න</string>
     <string name="open_dlb">DLB නිල වෙබ් අඩවිය විවෘත කරන්න</string>
     <string name="independent_notice">ස්වාධීන උපකාරක ආදර්ශයකි; NLB හෝ DLB නිල සේවාවක් නොවේ. ගැළපීමක් පෙනීම ත්‍යාගයක් ලැබෙන බවට සාක්ෂියක් නොවේ.</string>
+    <string name="browser_unavailable">මෙම සබැඳිය විවෘත කිරීමට බ්‍රවුසරයක් නොමැත.</string>
 </resources>
