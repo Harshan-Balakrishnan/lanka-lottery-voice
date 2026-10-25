@@ -132,6 +132,43 @@ class MainActivity : Activity() {
             ttsReady = status == TextToSpeech.SUCCESS
             if (!ttsReady) speechStatus.setText(R.string.speech_unavailable)
         }
+        restoreSavedState(savedInstanceState)
+    }
+
+    private fun restoreSavedState(state: Bundle?) {
+        if (state == null) return
+        findViewById<EditText>(R.id.lottery_name).setText(state.getString(STATE_LOTTERY_NAME, ""))
+        findViewById<EditText>(R.id.draw_date).setText(state.getString(STATE_DRAW_DATE, ""))
+        findViewById<EditText>(R.id.ticket_numbers).setText(state.getString(STATE_NUMBERS, ""))
+        findViewById<EditText>(R.id.ticket_letters).setText(state.getString(STATE_LETTERS, ""))
+        findViewById<RadioGroup>(R.id.board_group).check(
+            if (state.getBoolean(STATE_IS_DLB, false)) R.id.board_dlb else R.id.board_nlb
+        )
+        findViewById<CheckBox>(R.id.confirm_details).isChecked = state.getBoolean(STATE_CONFIRMED, false)
+
+        val capturedPath = state.getString(STATE_CAPTURED_FILE)
+        if (capturedPath != null) {
+            val file = File(capturedPath)
+            if (file.exists()) capturedPhotoFile = file
+        }
+        val photoUriString = state.getString(STATE_PHOTO_URI)
+        if (photoUriString != null) {
+            val uri = Uri.parse(photoUriString)
+            if (capturedPhotoFile != null) capturedPhotoUri = uri
+            showLocalPhoto(uri)
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putString(STATE_LOTTERY_NAME, findViewById<EditText>(R.id.lottery_name).text.toString())
+        outState.putString(STATE_DRAW_DATE, findViewById<EditText>(R.id.draw_date).text.toString())
+        outState.putString(STATE_NUMBERS, findViewById<EditText>(R.id.ticket_numbers).text.toString())
+        outState.putString(STATE_LETTERS, findViewById<EditText>(R.id.ticket_letters).text.toString())
+        outState.putBoolean(STATE_IS_DLB, findViewById<RadioGroup>(R.id.board_group).checkedRadioButtonId == R.id.board_dlb)
+        outState.putBoolean(STATE_CONFIRMED, findViewById<CheckBox>(R.id.confirm_details).isChecked)
+        selectedPhotoUri?.let { outState.putString(STATE_PHOTO_URI, it.toString()) }
+        capturedPhotoFile?.let { outState.putString(STATE_CAPTURED_FILE, it.absolutePath) }
+        super.onSaveInstanceState(outState)
     }
 
     private fun showPhotoOptions() {
@@ -360,6 +397,14 @@ class MainActivity : Activity() {
     companion object {
         private const val PREFS_NAME = "lanka_lottery_voice_preferences"
         private const val KEY_LANGUAGE = "language"
+        private const val STATE_LOTTERY_NAME = "state_lottery_name"
+        private const val STATE_DRAW_DATE = "state_draw_date"
+        private const val STATE_NUMBERS = "state_numbers"
+        private const val STATE_LETTERS = "state_letters"
+        private const val STATE_IS_DLB = "state_is_dlb"
+        private const val STATE_CONFIRMED = "state_confirmed"
+        private const val STATE_PHOTO_URI = "state_photo_uri"
+        private const val STATE_CAPTURED_FILE = "state_captured_file"
         private const val REQUEST_CAMERA = 1001
         private const val REQUEST_GALLERY = 1002
         private const val MAX_IMAGE_PIXELS = 40_000_000L
