@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Lanka Lottery Voice</string>
+    <string name="tagline">A simpler way to understand your ticket.</string>
+    <string name="language_label">Language</string>
+    <string-array name="language_names">
+        <item>English</item>
+        <item>සිංහල</item>
+        <item>தமிழ்</item>
+    </string-array>
+    <string-array name="photo_actions">
+        <item>Take a photo</item>
+        <item>Choose a photo</item>
+    </string-array>
+    <string name="welcome_title">Let’s check your ticket together.</string>
+    <string name="welcome_text">Choose the board, enter the printed details and confirm what you can read.</string>
+    <string name="trust_notice">This prototype is not connected to live official results. It will not tell you that you have won or lost.</string>
+    <string name="board_label">1. Which board issued your ticket?</string>
+    <string name="nlb_name">National Lotteries Board (NLB)</string>
+    <string name="dlb_name">Development Lotteries Board (DLB)</string>
+    <string name="lottery_label">Lottery name (as printed)</string>
+    <string name="lottery_hint">Type the name on your ticket</string>
+    <string name="draw_date_label">Draw date (if printed)</string>
+    <string name="draw_date_hint">YYYY-MM-DD</string>
+    <string name="photo_label">2. Add a ticket photo (optional)</string>
+    <string name="photo_help">Take a clear photo or choose one from your gallery. The photo stays on this device in this prototype; no OCR or upload is performed.</string>
+    <string name="photo_button">Take photo / Choose photo</string>
+    <string name="remove_photo">Remove photo</string>
+    <string name="photo_preview">Selected ticket photo preview</string>
+    <string name="numbers_label">Numbers printed on your ticket</string>
+    <string name="numbers_hint">Enter numbers exactly as printed</string>
+    <string name="letters_label">Letters or symbols (if any)</string>
+    <string name="letters_hint">Enter letters exactly as printed</string>
+    <string name="confirm_details">I checked the details above against my ticket.</string>
+    <string name="review_button">Review ticket details</string>
+    <string name="result_title">Ticket status</string>
+    <string name="result_initial">Enter your ticket details above. This prototype cannot check live results yet.</string>
+    <string name="result_unavailable">We cannot check this ticket yet. Live official results and reviewed rules for this lottery are not connected. No win or loss conclusion has been made.</string>
+    <string name="result_meta">For the final result and prize confirmation, use the relevant board’s official channel.</string>
+    <string name="speak_button">Read status aloud</string>
+    <string name="stop_speech">Stop reading</string>
+    <string name="speech_unavailable">A voice for this language is not available on this device. Please read the message on screen.</string>
+    <string name="speech_not_ready">Voice is not ready yet. Try again in a moment or read the text on screen.</string>
+    <string name="form_error">Please enter the lottery name and numbers, then confirm them against your ticket.</string>
+    <string name="image_invalid">This photo could not be opened. Please choose another image.</string>
+    <string name="image_too_large">This image is too large to preview safely. Please choose a smaller image.</string>
+    <string name="help_title">Need help?</string>
+    <string name="help_text">Ask someone you trust to help read the printed details. The official board remains the authority for results and prize claims.</string>
+    <string name="open_nlb">Open NLB official website</string>
+    <string name="open_dlb">Open DLB official website</string>
+    <string name="independent_notice">Independent helper concept — not an official NLB or DLB service. A possible match is not proof of a payable prize.</string>
+    <string name="browser_unavailable">No browser app is available to open this link.</string>
+</resources>

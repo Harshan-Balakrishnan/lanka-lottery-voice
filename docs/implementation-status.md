@@ -1,31 +1,37 @@
 # Implementation status
 
-Last updated: 2026-10-25
+Last updated: 2026-10-25  
+Working branch: `engineering/phase-zero-audit`
 
 ## Implemented in repository
-- TypeScript domain contracts for board, lottery, draw date, result provenance, ticket readings, and versioned rule sets.
-- Fail-closed result-checking guards.
-- Unit tests for confirmation, verification, freshness, draw identity, and rule version.
-- CI workflow configured to run Vitest and TypeScript type checking.
-- Responsive web prototype with NLB/DLB selection, photo preview, manual ticket fields, English/Sinhala/Tamil interface strings, and browser speech synthesis fallback.
-- Prototype states clearly that live results and OCR are not connected.
-- Official-source research and release-gate documents.
+- TypeScript domain contracts now distinguish current, old, unavailable, unverified, conflicting and corrected/superseded source states.
+- Matching guard checks user confirmation, valid ISO draw dates/timestamps, result provenance fields, exact board/lottery/draw identity, rule version and effective dates.
+- The domain no longer uses one universal max-age number; trusted source policy must assign current/old status for each lottery.
+- Unit tests cover core trust gates, leading-zero preservation, old/unavailable/conflicting/corrected results, draw mismatch and effective-date boundaries.
+- Static responsive web prototype with manual ticket entry, local image preview, 10 MB/20 MP preview guard, language strings, read-aloud control and explicit stop control.
+- Browser speech output checks that a voice matching the selected language is available and otherwise reports a fallback.
+- PWA manifest includes an SVG icon; service worker caches the static shell only.
+- CI workflow runs on pushes and pull requests, with domain tests, TypeScript typecheck, JavaScript syntax check and manifest JSON validation.
+- Native Android Kotlin/XML Views starter with language resources, system camera/gallery selection, cache-local photo preview, manual ticket fields, TTS locale checks and official-site links.
+- Separate Android build workflow configured to assemble a debug APK with JDK 17 and Gradle 8.9.
+- Documentation added/updated: architecture, repository audit, acceptance criteria, threat model, source research, privacy/compliance, OCR validation, testing strategy, release readiness and decision log.
 
 ## Not implemented / not verified
 - No official NLB/DLB API or permitted automated data connector has been confirmed.
-- No live results are fetched or cached.
-- No OCR is performed on ticket photos; the image preview is local to the browser.
-- Browser speech synthesis is device/browser dependent and Tamil/Sinhala voice availability is not guaranteed.
-- No production backend, authentication, admin console, database, monitoring, or secrets management.
-- No native Android app yet.
-- No automated test or typecheck has been run in this environment; GitHub Actions is configured but its run result must be checked after GitHub starts the workflow.
+- No live results are fetched or cached; the prototype never issues a real ticket verdict.
+- No OCR is performed on ticket photos.
+- No production backend, database, authentication, admin console, monitoring or secrets manager.
+- Native Android starter builds successfully in GitHub Actions; no real-device testing has been performed.
+- Browser TTS depends on available device/browser voices; this has not been tested on real devices.
+- No lockfile is present, so dependency resolution is not fully reproducible.
+- GitHub Actions CI run 85 succeeded: domain tests, TypeScript typecheck, web JavaScript syntax and manifest JSON validation passed. npm install reported zero known vulnerabilities. Android build run 36 succeeded and produced a debug APK artifact. No real-device tests or independent licence scan have been performed.
 - Not ready for public release or for claiming a ticket has won.
 
 ## Next engineering steps
-1. Run CI and fix any type/test issues.
-2. Build a reviewed catalogue of supported NLB and DLB lotteries and official rules, with sources and effective dates.
-3. Resolve source access permission and implement one connector with parser fixtures and freshness tests.
-4. Benchmark OCR on a consented, representative ticket set; preserve manual correction.
-5. Build the shared API and admin review flow.
-6. Build Android client and verify Tamil/Sinhala TTS/OCR choices on actual devices.
-7. Conduct privacy, security, accessibility, and real-device release reviews.
+1. Review the Phase Zero pull request and test the debug APK on real devices before considering a merge.
+2. Generate and commit a lockfile in a network-enabled environment; review dependencies and licences.
+3. Build a reviewed catalogue of supported lotteries and official rules with sources and effective dates.
+4. Obtain source-access permission and implement one connector with parser fixtures, freshness policy and correction handling.
+5. Implement shared API and server-side source-policy enforcement.
+6. Build the separate native Android app and validate camera, OCR/TTS choices and accessibility on actual devices.
+7. Complete local legal review, security verification, accessibility testing and release sign-off.
