@@ -83,8 +83,7 @@ function setLanguage(language) {
 
   // Dynamic status text must follow the selected language too.
   if (form.dataset.submitted === "true") {
-    form.dataset.submitted = "true";
-  document.querySelector("#result-panel h2").textContent = dictionary.statusTitle;
+    document.querySelector("#result-panel h2").textContent = dictionary.statusTitle;
     resultMessage.textContent = dictionary.statusMessage;
     resultMeta.textContent = dictionary.statusMeta;
   }
@@ -173,6 +172,7 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   const dictionary = translations[languageSelect.value] || translations.en;
   if (!form.reportValidity()) return;
+  form.dataset.submitted = "true";
   document.querySelector("#result-panel h2").textContent = dictionary.statusTitle;
   resultMessage.textContent = dictionary.statusMessage;
   resultMeta.textContent = dictionary.statusMeta;
