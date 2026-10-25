@@ -162,7 +162,7 @@ class MainActivity : Activity() {
             val outputFile = File.createTempFile("ticket_", ".jpg", directory)
             val outputUri = FileProvider.getUriForFile(
                 this,
-                "${BuildConfig.APPLICATION_ID}.fileprovider",
+                "${packageName}.fileprovider",
                 outputFile
             )
             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE).apply {
