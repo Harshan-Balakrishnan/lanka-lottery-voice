@@ -21,6 +21,9 @@ import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.FileProvider
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
 import java.io.File
 import java.io.IOException
 import java.util.Locale
@@ -37,6 +40,7 @@ class MainActivity : Activity() {
     private var selectedPhotoUri: Uri? = null
     private var pendingCameraUri: Uri? = null
     private var capturedPhotoFile: File? = null
+    private var capturedPhotoUri: Uri? = null
 
     override fun attachBaseContext(newBase: Context) {
         val language = newBase.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
@@ -49,6 +53,22 @@ class MainActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        val root = findViewById<View>(R.id.root_container)
+        val initialPaddingLeft = root.paddingLeft
+        val initialPaddingTop = root.paddingTop
+        val initialPaddingRight = root.paddingRight
+        val initialPaddingBottom = root.paddingBottom
+        ViewCompat.setOnApplyWindowInsetsListener(root) { view, insets ->
+            val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            view.setPadding(
+                initialPaddingLeft + bars.left,
+                initialPaddingTop + bars.top,
+                initialPaddingRight + bars.right,
+                initialPaddingBottom + bars.bottom
+            )
+            insets
+        }
 
         languageSpinner = findViewById(R.id.language_spinner)
         resultMessage = findViewById(R.id.result_message)
@@ -156,6 +176,7 @@ class MainActivity : Activity() {
             }
             capturedPhotoFile?.delete()
             capturedPhotoFile = outputFile
+            capturedPhotoUri = outputUri
             pendingCameraUri = outputUri
             startActivityForResult(intent, REQUEST_CAMERA)
         } catch (_: Exception) {
@@ -173,6 +194,7 @@ class MainActivity : Activity() {
             if (requestCode == REQUEST_CAMERA) {
                 capturedPhotoFile?.delete()
                 capturedPhotoFile = null
+                capturedPhotoUri = null
                 pendingCameraUri = null
             }
             return
@@ -183,7 +205,7 @@ class MainActivity : Activity() {
             REQUEST_GALLERY -> data?.data
             else -> null
         }
-        pendingCameraUri = null
+        if (requestCode == REQUEST_CAMERA) pendingCameraUri = null
         if (uri != null) showLocalPhoto(uri)
     }
 
@@ -233,9 +255,10 @@ class MainActivity : Activity() {
     }
 
     private fun clearFailedCameraImage(uri: Uri) {
-        if (uri == pendingCameraUri || uri == selectedPhotoUri) {
+        if (uri == capturedPhotoUri) {
             capturedPhotoFile?.delete()
             capturedPhotoFile = null
+            capturedPhotoUri = null
         }
         selectedPhotoUri = null
         photoPreview.setImageDrawable(null)
@@ -246,6 +269,7 @@ class MainActivity : Activity() {
     private fun removeSelectedPhoto() {
         capturedPhotoFile?.delete()
         capturedPhotoFile = null
+        capturedPhotoUri = null
         pendingCameraUri = null
         selectedPhotoUri = null
         photoPreview.setImageDrawable(null)
@@ -313,7 +337,11 @@ class MainActivity : Activity() {
     }
 
     override fun onDestroy() {
-        if (isFinishing) capturedPhotoFile?.delete()
+        if (isFinishing) {
+            capturedPhotoFile?.delete()
+            capturedPhotoFile = null
+            capturedPhotoUri = null
+        }
         textToSpeech?.stop()
         textToSpeech?.shutdown()
         textToSpeech = null
