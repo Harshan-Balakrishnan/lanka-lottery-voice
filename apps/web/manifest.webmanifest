@@ -1,0 +1,12 @@
+{
+  "name": "Lanka Lottery Voice",
+  "short_name": "Lottery Voice",
+  "description": "An accessible ticket helper for Sri Lankan lottery players.",
+  "lang": "en",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3f6fa",
+  "theme_color": "#123c75",
+  "icons": []
+}
