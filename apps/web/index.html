@@ -68,7 +68,8 @@
         <legend data-i18n="photoLegend">2. Take a photo or choose a picture</legend>
         <p class="field-help" data-i18n="photoHelp">Place the ticket flat in good light. Keep all numbers and letters in the frame.</p>
         <label class="upload-button" for="ticket-photo"><span aria-hidden="true">📷</span> <span data-i18n="photoButton">Take photo / Choose photo</span></label>
-        <input id="ticket-photo" type="file" accept="image/*" capture="environment">
+        <input id="ticket-photo" type="file" accept="image/jpeg,image/png,image/webp,image/avif,image/heic,image/heif" capture="environment">
+        <p id="photo-feedback" class="field-help" role="status" aria-live="polite"></p>
         <div id="photo-preview" class="photo-preview" hidden>
           <img id="preview-image" alt="Preview of selected ticket photo">
           <button id="remove-photo" type="button" class="text-button" data-i18n="removePhoto">Remove photo</button>
