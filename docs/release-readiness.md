@@ -8,7 +8,7 @@ Current release status: **NOT READY**.
 - [ ] No reviewed lottery catalogue and versioned production rules.
 - [ ] No API/backend or safe result persistence.
 - [ ] No OCR engine or benchmark.
-- [ ] Native Android prototype exists but its build, lifecycle, accessibility and real-device behaviour are not yet verified.
+- [x] Android debug APK build passes in CI; lifecycle, accessibility and real-device behaviour still need device testing.
 - [x] Web/domain CI passed on the audit branch; Android debug APK build passed in GitHub Actions. Real-device and end-to-end tests remain outstanding.
 - [ ] No committed dependency lockfile or independent licence scan. npm install reported zero known vulnerabilities in CI.
 - [ ] No legal review of current Sri Lankan data protection obligations.
