@@ -22,6 +22,12 @@ jobs:
           node-version: 22
       - name: Install dependencies
         run: npm install
+      - name: Upload generated lockfile for reproducibility setup
+        uses: actions/upload-artifact@v4
+        with:
+          name: temporary-npm-lockfile
+          path: package-lock.json
+          retention-days: 1
       - name: Test domain safety gates
         run: npm test
       - name: Type-check domain
