@@ -8,7 +8,7 @@ Current release status: **NOT READY**.
 - [ ] No reviewed lottery catalogue and versioned production rules.
 - [ ] No API/backend or safe result persistence.
 - [ ] No OCR engine or benchmark.
-- [ ] No native Android app.
+- [ ] Native Android prototype exists but its build, lifecycle, accessibility and real-device behaviour are not yet verified.
 - [ ] Tests/typecheck/CI result not yet verified.
 - [ ] No dependency lockfile or completed vulnerability/licence scan.
 - [ ] No legal review of current Sri Lankan data protection obligations.
