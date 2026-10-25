@@ -74,8 +74,10 @@ The candidate deployment is `READY`, but that alone does not verify browser rend
 - Keep dynamic result-status text in the selected language after language changes.
 - Restrict the service worker to known static shell assets only.
 - Add CI regression checks for translations, safe result messaging, photo limits, object URL cleanup, external link protections, cache scope, JavaScript syntax and PWA manifest validity.
+- Enforce lottery rule effective-from/effective-to dates, strict ISO draw dates, non-empty ticket number entries and HTTPS source URLs in the shared matching guard; add regression tests.
+- Upgrade Vitest to 4.1.12 and add an npm audit gate after CI identified six advisories (including two critical) in the older test-runner dependency tree.
 
-These changes do not add OCR, fetch results, establish legal permission, or make the application production-ready. The branch must pass GitHub Actions and a real browser/device review before acceptance.
+These changes do not add OCR, fetch results, establish legal permission, or make the application production-ready. The branch's latest recorded GitHub Actions run passed: 11 domain tests, TypeScript typecheck, JavaScript syntax, localization/photo/cache regression checks, manifest JSON validation and `npm audit --audit-level=high` (npm reported 0 vulnerabilities at install/audit time). This does not replace a real browser/device review before acceptance.
 
 
 ## Sri Lankan data-protection law — current-source caution
