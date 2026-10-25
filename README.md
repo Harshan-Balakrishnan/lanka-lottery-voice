@@ -15,9 +15,9 @@ Implemented:
 Not implemented or verified:
 - No live NLB/DLB results API or authorised automated connector.
 - No production backend, database, authentication, OCR or admin console.
-- An initial native Android Kotlin/XML Views prototype exists under `apps/android`, but it has not been build-verified on a device.
+- An initial native Android Kotlin/XML Views prototype exists under `apps/android`; its debug APK builds in CI, but it has not been tested on a real device.
 - No verified production lottery rule sets.
-- Tests/build/security scans have not been verified as passing in this environment.
+- GitHub Actions has passed domain tests, TypeScript typecheck, web JavaScript syntax and manifest validation; npm install reported zero known vulnerabilities. The Android debug APK also built successfully in CI. No real-device tests have been performed.
 - No production deployment is verified.
 
 ## Trust rules
