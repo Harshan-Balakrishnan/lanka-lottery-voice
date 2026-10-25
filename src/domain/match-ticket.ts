@@ -28,7 +28,7 @@ export function checkTicket(request: MatchRequest): MatchOutcome {
   if (!isValidIsoDate(ticket.drawDate) ||
       !ticket.lotteryId.trim() ||
       ticket.numbers.length === 0 ||
-      ticket.numbers.some((value) => typeof value !== "string" || value.length === 0)) {
+      ticket.numbers.some((value) => typeof value !== "string" || value.trim().length === 0)) {
     return { status: "CANNOT_VERIFY", reason: "invalid_data" };
   }
   if (!result) {
@@ -39,7 +39,7 @@ export function checkTicket(request: MatchRequest): MatchOutcome {
   switch (provenance.verification) {
     case "VERIFIED_BUT_OLD":
     case "SOURCE_UNAVAILABLE":
-      return { status: "RESULT_NOT_CURRENT", explanationKey: "result.not_current" };
+      return { status: "CANNOT_VERIFY", reason: "source_unavailable" };
     case "CONFLICTING_SOURCES":
       return { status: "CANNOT_VERIFY", reason: "conflicting_sources" };
     case "CORRECTED_OR_SUPERSEDED":
@@ -57,10 +57,11 @@ export function checkTicket(request: MatchRequest): MatchOutcome {
       !Number.isFinite(now.getTime()) ||
       Date.parse(provenance.retrievedAt) > now.getTime() ||
       !provenance.sourceUrl.startsWith("https://") ||
+      (provenance.publishedAt !== undefined && !isValidTimestamp(provenance.publishedAt)) ||
       !provenance.schemaVersion.trim() ||
       !result.sourceRecordId.trim() ||
       result.winningNumbers.length === 0 ||
-      result.winningNumbers.some((value) => typeof value !== "string" || value.length === 0)) {
+      result.winningNumbers.some((value) => typeof value !== "string" || value.trim().length === 0)) {
     return { status: "CANNOT_VERIFY", reason: "invalid_data" };
   }
 
