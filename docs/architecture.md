@@ -18,7 +18,7 @@ There is currently no production API, database, source adapter, admin service or
 Keep deployment simple until traffic and operational needs justify splitting services.
 
 - **Web/PWA** (`apps/web`): accessible ticket capture/manual entry, user confirmation, result/source display, localised text and optional voice.
-- **Android** (`apps/android`): separate native Android application; choose language/framework after documenting build constraints and validating device capabilities. Do not wrap the web app in a WebView as the native deliverable.
+- **Android** (`apps/android`): separate native Kotlin application using XML Views, selected in decision D-007. It currently provides manual entry, system camera/gallery selection, a cache-local preview and optional TTS; do not wrap the web app in a WebView as the native deliverable.
 - **API** (`services/api`): validated endpoints for lottery catalogue, eligible result lookup, ticket-check request and source health. Source credentials and privileged logic stay server-side.
 - **Domain package** (`src/domain` initially): pure deterministic contracts and match guards. Later move to a shared package only when both API and clients need it; avoid duplicating business rules in clients.
 - **Source adapters** (`services/api/src/sources` when created): one adapter per approved source method; parsers are isolated and fixture-tested.
