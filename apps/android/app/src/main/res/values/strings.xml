@@ -48,4 +48,5 @@
     <string name="open_nlb">Open NLB official website</string>
     <string name="open_dlb">Open DLB official website</string>
     <string name="independent_notice">Independent helper concept — not an official NLB or DLB service. A possible match is not proof of a payable prize.</string>
+    <string name="browser_unavailable">No browser app is available to open this link.</string>
 </resources>
