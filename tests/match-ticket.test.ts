@@ -82,6 +82,15 @@ describe("checkTicket trust gates", () => {
       .toEqual({ status: "RESULT_NOT_CURRENT", explanationKey: "result.not_current" });
   });
 
+  it("does not convert an unavailable source into a no-match verdict", () => {
+    const unavailable = {
+      ...result,
+      provenance: { ...result.provenance, verification: "SOURCE_UNAVAILABLE" as const }
+    };
+    expect(checkTicket(request({ result: unavailable })))
+      .toEqual({ status: "CANNOT_VERIFY", reason: "source_unavailable" });
+  });
+
   it("stops when sources conflict", () => {
     const conflicting = {
       ...result,
