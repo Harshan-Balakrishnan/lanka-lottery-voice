@@ -69,6 +69,11 @@ function setLanguage(language) {
   document.querySelector("#ticket-numbers").placeholder = dictionary.numbersPlaceholder;
   document.querySelector("#ticket-letters").placeholder = dictionary.lettersPlaceholder;
   previewImage.alt = dictionary.previewAlt;
+  if (form.dataset.submitted === "true") {
+    document.querySelector("#result-panel h2").textContent = dictionary.statusTitle;
+    resultMessage.textContent = dictionary.statusMessage;
+    resultMeta.textContent = dictionary.statusMeta;
+  }
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     const key = element.dataset.i18n;
     if (dictionary[key]) element.textContent = dictionary[key];
@@ -141,6 +146,7 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   const dictionary = translations[languageSelect.value] || translations.en;
   if (!form.reportValidity()) return;
+  form.dataset.submitted = "true";
   document.querySelector("#result-panel h2").textContent = dictionary.statusTitle;
   resultMessage.textContent = dictionary.statusMessage;
   resultMeta.textContent = dictionary.statusMeta;
