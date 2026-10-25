@@ -12,6 +12,8 @@ Working branch: `engineering/phase-zero-audit`
 - Browser speech output checks that a voice matching the selected language is available and otherwise reports a fallback.
 - PWA manifest includes an SVG icon; service worker caches the static shell only.
 - CI workflow runs on pushes and pull requests, with domain tests, TypeScript typecheck, JavaScript syntax check and manifest JSON validation.
+- Native Android Kotlin/XML Views starter with language resources, system camera/gallery selection, cache-local photo preview, manual ticket fields, TTS locale checks and official-site links.
+- Separate Android build workflow configured to assemble a debug APK with JDK 17 and Gradle 8.9.
 - Documentation added/updated: architecture, repository audit, acceptance criteria, threat model, source research, privacy/compliance, OCR validation, testing strategy, release readiness and decision log.
 
 ## Not implemented / not verified
@@ -19,7 +21,7 @@ Working branch: `engineering/phase-zero-audit`
 - No live results are fetched or cached; the prototype never issues a real ticket verdict.
 - No OCR is performed on ticket photos.
 - No production backend, database, authentication, admin console, monitoring or secrets manager.
-- No native Android application yet.
+- Native Android starter exists, but the Gradle build has not been verified and no real-device testing has been performed.
 - Browser TTS depends on available device/browser voices; this has not been tested on real devices.
 - No lockfile is present, so dependency resolution is not fully reproducible.
 - Tests, typecheck, build, vulnerability scan and real-device tests have not been run successfully in this environment. The configured CI run must be checked.
