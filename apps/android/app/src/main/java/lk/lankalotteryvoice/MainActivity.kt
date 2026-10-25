@@ -153,6 +153,7 @@ class MainActivity : Activity() {
     }
 
     private fun capturePhotoWithSystemCamera() {
+        removeSelectedPhoto()
         try {
             val directory = File(cacheDir, "ticket-captures")
             if (!directory.exists() && !directory.mkdirs()) {
@@ -205,7 +206,13 @@ class MainActivity : Activity() {
             REQUEST_GALLERY -> data?.data
             else -> null
         }
-        if (requestCode == REQUEST_CAMERA) pendingCameraUri = null
+        if (requestCode == REQUEST_CAMERA) {
+            pendingCameraUri = null
+        } else if (requestCode == REQUEST_GALLERY) {
+            capturedPhotoFile?.delete()
+            capturedPhotoFile = null
+            capturedPhotoUri = null
+        }
         if (uri != null) showLocalPhoto(uri)
     }
 
