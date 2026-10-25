@@ -1,0 +1,9 @@
+<resources>
+    <color name="navy">#123C75</color>
+    <color name="navy_dark">#0A2850</color>
+    <color name="blue_soft">#EAF2FF</color>
+    <color name="ink">#182536</color>
+    <color name="muted">#5A6879</color>
+    <color name="page">#F3F6FA</color>
+    <color name="warning_bg">#FFF6DF</color>
+</resources>
