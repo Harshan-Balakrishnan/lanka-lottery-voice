@@ -23,4 +23,4 @@
 A test counts as passed only when command output or a GitHub Actions run proves it. A configured workflow is not proof of success. Record commit SHA, runtime/tool versions, command, exit status and failures.
 
 ## Current execution record
-The repository was inspected through GitHub. Local clone failed because this environment could not resolve github.com. npm install, tests, typecheck, build, lint, dependency scans and device tests have not been run here. GitHub combined status lookup returned no status entries. This is not a passing result.
+Repository inspection succeeded through GitHub; local clone failed because this environment could not resolve github.com. GitHub Actions CI run 85 passed domain tests, TypeScript typecheck, web JavaScript syntax validation and manifest JSON validation. npm install reported zero known vulnerabilities. Android build run 36 successfully assembled the debug APK and uploaded an artifact. No real-device, accessibility, end-to-end, independent licence or penetration tests have been run.
