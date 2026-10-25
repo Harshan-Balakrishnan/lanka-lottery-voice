@@ -13,7 +13,7 @@ for (const language of ["en", "si", "ta"]) {
   const end = app.indexOf(next, start);
   assert.notEqual(end, -1, `Could not parse ${language} dictionary`);
   const block = app.slice(start, end);
-  const keys = new Set([...block.matchAll(/^\s*([A-Za-z][A-Za-z0-9]*):/gm)].map((match) => match[1]));
+  const keys = new Set([...block.matchAll(/\b([A-Za-z][A-Za-z0-9]*):\s*"/g)].map((match) => match[1]));
   for (const key of htmlKeys) assert(keys.has(key), `Missing translation: ${language}.${key}`);
   for (const key of ["photoInvalidType", "photoTooLarge", "photoDimensions", "photoUnreadable", "statusTitle", "statusMessage", "statusMeta"]) {
     assert(keys.has(key), `Missing safety/UX message: ${language}.${key}`);
