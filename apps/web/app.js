@@ -7,7 +7,7 @@ const translations = {
     photoLegend: "2. Take a photo or choose a picture", photoHelp: "Place the ticket flat in good light. Keep all numbers and letters in the frame.",
     photoButton: "Take photo / Choose photo", removePhoto: "Remove photo", photoNoOcr: "Photo text-reading is not connected yet. Please type the details below and check them carefully.",
     numbersLabel: "Numbers printed on your ticket", lettersLabel: "Letters (if any)", confirmText: "I checked the details above against my ticket.",
-    checkButton: "Check official result status", resultTitle: "Your result status",
+    checkButton: "Review ticket details", resultTitle: "Your result status",
     resultInitial: "Enter your ticket details above. We will explain what can and cannot be checked.",
     resultMeta: "Official results connection: not available in this prototype.", speakButton: "Read this aloud",
     helpTitle: "Need help?", helpText: "Ask someone you trust to help read the printed details. For the final result and prize confirmation, use the relevant board’s official channel.",
@@ -29,7 +29,7 @@ const translations = {
     photoLegend: "2. ඡායාරූපයක් ගන්න හෝ තෝරන්න", photoHelp: "පත හොඳ ආලෝකයක සමතලා තබන්න. සියලු අංක සහ අකුරු ඡායාරූපයේ තිබිය යුතුය.",
     photoButton: "ඡායාරූපයක් ගන්න / තෝරන්න", removePhoto: "ඡායාරූපය ඉවත් කරන්න", photoNoOcr: "ඡායාරූපයෙන් අකුරු කියවීම තවම සම්බන්ධ කර නැත. පහත විස්තර ඇතුළත් කර පරීක්ෂා කරන්න.",
     numbersLabel: "පතේ ඇති අංක", lettersLabel: "අකුරු (තිබේ නම්)", confirmText: "ඉහත විස්තර මගේ ලොතරැයි පත සමඟ පරීක්ෂා කළෙමි.",
-    checkButton: "නිල ප්‍රතිඵල තත්ත්වය පරීක්ෂා කරන්න", resultTitle: "ප්‍රතිඵල තත්ත්වය",
+    checkButton: "පතේ විස්තර නැවත පරීක්ෂා කරන්න", resultTitle: "ප්‍රතිඵල තත්ත්වය",
     resultInitial: "ඉහත ඔබේ පතේ විස්තර ඇතුළත් කරන්න.", resultMeta: "නිල ප්‍රතිඵල සම්බන්ධතාව: මෙම ආදර්ශයේ නොමැත.",
     speakButton: "හඬින් කියවන්න", helpTitle: "උදව් අවශ්‍යද?", helpText: "මුද්‍රිත විස්තර කියවීමට ඔබ විශ්වාස කරන අයෙකුගෙන් උදව් ඉල්ලන්න. අවසාන ප්‍රතිඵලය අදාළ මණ්ඩලයෙන් තහවුරු කරන්න.",
     footerText: "Lanka Lottery Voice යනු ස්වාධීන උපකාරක සංකල්පයකි; එය NLB හෝ DLB නිල සේවාවක් නොවේ.",
@@ -49,7 +49,7 @@ const translations = {
     photoLegend: "2. படம் எடுக்கவும் அல்லது தேர்ந்தெடுக்கவும்", photoHelp: "சீட்டை நல்ல வெளிச்சத்தில் சமமாக வைக்கவும். எல்லா எண்களும் எழுத்துகளும் படத்தில் இருக்கட்டும்.",
     photoButton: "படம் எடுக்கவும் / தேர்ந்தெடுக்கவும்", removePhoto: "படத்தை நீக்கவும்", photoNoOcr: "படத்திலிருந்து எழுத்துகளை வாசிக்கும் வசதி இன்னும் இணைக்கப்படவில்லை. கீழே விவரங்களை உள்ளிட்டு கவனமாகச் சரிபார்க்கவும்.",
     numbersLabel: "சீட்டில் அச்சிடப்பட்ட எண்கள்", lettersLabel: "எழுத்துகள் (இருந்தால்)", confirmText: "மேலுள்ள விவரங்களை என் சீட்டுடன் ஒப்பிட்டுச் சரிபார்த்தேன்.",
-    checkButton: "அதிகாரப்பூர்வ முடிவு நிலையைச் சரிபார்க்கவும்", resultTitle: "உங்கள் முடிவு நிலை",
+    checkButton: "சீட்டு விவரங்களை மீண்டும் சரிபார்க்கவும்", resultTitle: "உங்கள் முடிவு நிலை",
     resultInitial: "மேலே உங்கள் சீட்டு விவரங்களை உள்ளிடவும்.", resultMeta: "அதிகாரப்பூர்வ முடிவு இணைப்பு: இந்த மாதிரியில் இல்லை.",
     speakButton: "குரலில் வாசிக்கவும்", helpTitle: "உதவி வேண்டுமா?", helpText: "அச்சிடப்பட்ட விவரங்களை வாசிக்க நீங்கள் நம்பும் ஒருவரிடம் உதவி கேளுங்கள். இறுதி முடிவை சம்பந்தப்பட்ட வாரியத்தின் அதிகாரப்பூர்வ வழியில் உறுதிப்படுத்துங்கள்.",
     footerText: "Lanka Lottery Voice ஒரு சுயாதீன உதவி மாதிரி; இது NLB அல்லது DLB அதிகாரப்பூர்வ சேவை அல்ல.",
@@ -74,8 +74,11 @@ const speechStatus = document.querySelector("#speech-status");
 let currentObjectUrl = null;
 
 function setLanguage(language) {
-  const dictionary = translations[language] || translations.en;
-  document.documentElement.lang = language;
+  const safeLanguage = Object.hasOwn(translations, language) ? language : "en";
+  languageSelect.value = safeLanguage;
+  const dictionary = translations[safeLanguage] || translations.en;
+  document.documentElement.lang = safeLanguage;
+  try { localStorage.setItem("llv-language", safeLanguage); } catch { /* Storage may be unavailable in private browsing. */ }
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     const key = element.dataset.i18n;
     if (dictionary[key]) element.textContent = dictionary[key];
@@ -91,6 +94,10 @@ function setLanguage(language) {
 }
 
 languageSelect.addEventListener("change", () => setLanguage(languageSelect.value));
+try {
+  const savedLanguage = localStorage.getItem("llv-language");
+  if (savedLanguage && Object.hasOwn(translations, savedLanguage)) setLanguage(savedLanguage);
+} catch { /* Language switching still works without storage. */ }
 
 const photoFeedback = document.querySelector("#photo-feedback");
 const MAX_PHOTO_BYTES = 10 * 1024 * 1024;

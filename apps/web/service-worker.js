@@ -1,4 +1,4 @@
-const CACHE_NAME = "lanka-lottery-voice-shell-v2";
+const CACHE_NAME = "lanka-lottery-voice-shell-v3";
 const SHELL = ["./", "./index.html", "./styles.css", "./app.js", "./manifest.webmanifest"];
 const STATIC_URLS = new Set(SHELL.map((path) => new URL(path, self.location.href).href));
 

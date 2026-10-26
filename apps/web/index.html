@@ -12,7 +12,7 @@
 <body>
   <a class="skip-link" href="#main">Skip to ticket helper</a>
   <header class="site-header">
-    <div class="brand-mark" aria-hidden="true">LV</div>
+    <div class="brand-mark" aria-hidden="true">LLV</div>
     <div>
       <p class="eyebrow">SRI LANKA · NLB + DLB</p>
       <h1>Lanka Lottery Voice</h1>
@@ -56,7 +56,7 @@
 
       <div class="field">
         <label for="lottery-name" data-i18n="lotteryLabel">Lottery name (as printed)</label>
-        <input id="lottery-name" name="lotteryName" autocomplete="off" placeholder="Type the name on your ticket" required>
+        <input id="lottery-name" name="lotteryName" autocomplete="off" placeholder="Type the name on your ticket" autocomplete="off" required>
       </div>
 
       <div class="field">
@@ -79,7 +79,7 @@
 
       <div class="field">
         <label for="ticket-numbers" data-i18n="numbersLabel">Numbers printed on your ticket</label>
-        <input id="ticket-numbers" name="numbers" inputmode="numeric" autocomplete="off" placeholder="Enter numbers exactly as printed" required>
+        <input id="ticket-numbers" name="numbers" inputmode="numeric" autocomplete="off" placeholder="Enter numbers exactly as printed" autocapitalize="characters" spellcheck="false" required>
       </div>
       <div class="field">
         <label for="ticket-letters" data-i18n="lettersLabel">Letters (if any)</label>
@@ -89,11 +89,11 @@
         <input id="confirm-details" type="checkbox" required>
         <span data-i18n="confirmText">I checked the details above against my ticket.</span>
       </label>
-      <button class="primary-button" type="submit" data-i18n="checkButton">Check official result status</button>
+      <button class="primary-button" type="submit" data-i18n="checkButton">Review ticket details</button>
     </form>
 
     <section id="result-panel" class="panel result-panel" aria-live="polite" aria-atomic="true">
-      <div class="result-icon" aria-hidden="true">✓</div>
+      <div class="result-icon" aria-hidden="true">i</div>
       <div>
         <h2 data-i18n="resultTitle">Your result status</h2>
         <p id="result-message" data-i18n="resultInitial">Enter your ticket details above. We will explain what can and cannot be checked.</p>
