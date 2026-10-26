@@ -1,30 +1,52 @@
 # Lanka Lottery Voice
 
-A Sri Lanka-focused lottery ticket assistant designed for people who find official result websites difficult to use. The product direction is **photo-first, voice-friendly, Tamil/Sinhala/English**, and supports lotteries published by both the National Lotteries Board (NLB) and Development Lotteries Board (DLB).
+An independent Sri Lankan lottery-ticket helper concept for people who find official results websites difficult to use. The intended experience is photo-first, voice-friendly and available in Tamil, Sinhala and English, covering NLB and DLB within verified capabilities.
 
 ## Current status
 
-**Phase 1 foundation — not production-ready.** This repository starts with a small TypeScript domain core, fail-closed matching rules, tests, and research notes. It does not yet include a live results feed, OCR pipeline, website/PWA, or Android app. No official public API or permission to scrape either board has been confirmed.
+**Prototype — not production-ready.** The repository includes a static responsive web/PWA prototype and a tested TypeScript domain foundation. It does not yet have a live official results connector, OCR engine, verified production rule sets, backend or native Android source tree.
+
+The user-supplied official logo is available in the conversation, but has not yet been committed as a binary repository asset. The current web header still uses the temporary `LV` mark and the PWA manifest icon list remains empty. Do not treat the branding integration as complete until the original PNG is tracked in Git and all icon paths are verified.
 
 ## Non-negotiable trust rules
 
 - Never invent, infer, or silently reuse lottery results.
-- Every result must retain its board, lottery name, draw date/number (when published), source URL, retrieval time, and verification state.
-- If the source is stale, unavailable, ambiguous, or unverified, say so and do not announce a win/loss.
-- OCR output is a suggestion. Ask the user to confirm unclear ticket numbers and letters.
-- Apply only a verified rule set for the exact lottery and draw. Do not use one generic matching rule for all lotteries.
-- Present matches as **possible match / no match under the verified rules**, not as a guarantee that a ticket is valid or payable. The relevant board remains authoritative.
-- Do not request NIC numbers, bank details, or other unnecessary personal data. Ticket images should be processed minimally and have an explicit delete/retention policy.
+- Every future result must retain board, lottery, draw date/number, source URL, retrieval time, verification state and rule version.
+- If a source is stale, unavailable, ambiguous, conflicting or unverified, do not announce a win/loss.
+- OCR output is a suggestion. Ask the user to review and confirm uncertain ticket numbers and letters.
+- Apply only a verified rule set for the exact lottery and draw. Never apply a generic matching rule blindly.
+- Describe any match as a possible match under verified rules, not a guarantee that a ticket is valid or payable.
+- Do not request NIC numbers, bank details or other unnecessary personal data. Minimize photo retention.
 
-## Planned architecture
+## Current features
 
-1. `apps/web` — accessible responsive web app / PWA.
-2. `apps/android` — separate Android app (Kotlin or Java decision to be made explicitly; no Compose assumption).
-3. `services/api` — shared API, source registry, result provenance, rule versions, audit logs.
-4. `packages/domain` — board-agnostic, tested ticket/result matching contracts.
-5. `docs` — source research, privacy, release gates, and test plans.
+- Responsive web form with NLB/DLB selection.
+- Manual ticket details and draw-date entry.
+- Local ticket photo preview with type/size/dimension safeguards.
+- English, Sinhala and Tamil UI translations.
+- Browser text-to-speech where the browser supports it.
+- Static-shell service worker with offline shell caching.
+- TypeScript domain matching guardrails and regression tests.
 
-The initial commit contains only the domain foundation and research documents. The app directories above are planned, not implemented yet.
+## Missing or unverified
+
+- Authorized live result access for NLB and DLB.
+- Production-verified lottery-specific prize rules.
+- OCR extraction and correction workflow.
+- Backend, accounts, history or result administration.
+- Native Android application.
+- Verified official logo integration and complete PWA/Android icon set.
+- Full browser, accessibility and real-device test evidence.
+- Legal/privacy sign-off for future processing and official data reuse.
+
+## Architecture
+
+- `apps/web` — static web app/PWA.
+- `src/domain` — shared TypeScript matching contracts and fail-closed guard.
+- `tests` — automated domain tests.
+- `docs` — audit, architecture, design system, acceptance criteria, privacy/security, QA/release and decisions.
+
+See [Repository Audit](docs/REPOSITORY_AUDIT.md), [Architecture](docs/ARCHITECTURE.md), [Design System](docs/DESIGN_SYSTEM.md), [Acceptance Criteria](docs/ACCEPTANCE_CRITERIA.md), [Security and Privacy](docs/SECURITY_AND_PRIVACY.md), [QA and Release](docs/QA_AND_RELEASE.md) and [Decisions](docs/DECISIONS.md).
 
 ## Local development
 
@@ -34,18 +56,19 @@ Requires Node.js 20 or newer.
 npm install
 npm test
 npm run typecheck
+node --check apps/web/app.js
+node apps/web/verify-ui.mjs
 ```
 
 ## Official source starting points
 
-- DLB: https://www.dlb.lk/
-- DLB results: https://www.dlb.lk/result/en
-- DLB lottery catalogue: https://www.dlb.lk/lottery/en
 - NLB: https://www.nlb.lk/
 - NLB results: https://www.nlb.lk/resultsdlb
+- DLB: https://www.dlb.lk/
+- DLB results: https://www.dlb.lk/result/en
 
-These links are research starting points, not proof of a stable API, permission to automate collection, or current result freshness. See `docs/source-research.md`.
+These links are research starting points, not proof of a stable API, permission to automate collection, or current result freshness. Review `docs/source-research.md`.
 
 ## Release gate
 
-Do not release automated ticket verdicts until current official source access, permitted collection method, lottery-specific prize rules, draw-date alignment, Tamil/Sinhala OCR accuracy, accessibility, privacy obligations, and real-device testing have been validated and documented.
+Do not release automated ticket verdicts until authorized official source access, permitted collection method, lottery-specific rules, draw-date alignment, OCR accuracy, accessibility, privacy/legal obligations and real-device tests are validated and documented. Keep changes in preview until the acceptance checklist is satisfied.
