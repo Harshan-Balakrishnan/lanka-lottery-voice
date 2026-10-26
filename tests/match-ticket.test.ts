@@ -74,6 +74,38 @@ describe("checkTicket safety gates", () => {
       .toEqual({ status: "cannot_check", reason: "rule_missing" });
   });
 
+  it("rejects a rule set that is not yet effective for the ticket draw", () => {
+    expect(checkTicket(request({
+      ruleSet: { ...ruleSet, effectiveFrom: "2026-10-25" }
+    }))).toEqual({ status: "cannot_check", reason: "rule_missing" });
+  });
+
+  it("rejects a rule set that expired before the ticket draw", () => {
+    expect(checkTicket(request({
+      ruleSet: { ...ruleSet, effectiveTo: "2026-10-23" }
+    }))).toEqual({ status: "cannot_check", reason: "rule_missing" });
+  });
+
+  it("rejects impossible calendar dates even when ticket and result dates agree", () => {
+    const invalidDate = "2026-02-30";
+    expect(checkTicket(request({
+      ticket: { ...ticket, drawDate: invalidDate },
+      result: { ...result, provenance: { ...result.provenance, drawDate: invalidDate } }
+    }))).toEqual({ status: "cannot_check", reason: "wrong_draw" });
+  });
+
+  it("rejects non-HTTPS result source URLs", () => {
+    expect(checkTicket(request({
+      result: { ...result, provenance: { ...result.provenance, sourceUrl: "http://example.test/result" } }
+    }))).toEqual({ status: "cannot_check", reason: "unverified_result" });
+  });
+
+  it("rejects empty ticket number entries", () => {
+    expect(checkTicket(request({
+      ticket: { ...ticket, numbers: ["  "] }
+    }))).toEqual({ status: "cannot_check", reason: "ticket_unconfirmed" });
+  });
+
   it("delegates to the lottery-specific evaluator only after every gate passes", () => {
     expect(checkTicket(request())).toEqual({
       status: "possible_match",

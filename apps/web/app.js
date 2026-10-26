@@ -15,7 +15,11 @@ const translations = {
     statusTitle: "We cannot verify this ticket yet.", statusMessage: "Your details have been recorded on this screen, but live official results and the verified rules for this lottery are not connected. No win or loss conclusion has been made.",
     statusMeta: "No ticket image is uploaded to a server by this prototype. The final result must be confirmed with the relevant official board.",
     speechUnavailable: "Speech is not available in this browser. Please read the message on screen.",
-    noMessage: "There is no result message to read yet.", speechStarted: "Reading the message aloud, if your device supports this language."
+    photoInvalidType: "Please choose a JPEG, PNG, WebP, AVIF, or HEIC image.",
+    photoTooLarge: "This image is larger than 10 MB. Choose a smaller photo.",
+    photoDimensions: "This image is too large to preview safely. Choose a smaller or lower-resolution photo.",
+    photoUnreadable: "This image could not be opened. Try another photo.",
+        noMessage: "There is no result message to read yet.", speechStarted: "Reading the message aloud, if your device supports this language."
   },
   si: {
     tagline: "ඔබේ ලොතරැයි පත තේරුම් ගැනීමට පහසු ක්‍රමයක්.", languageLabel: "භාෂාව", stepLabel: "ඔබේ ලොතරැයි පත පහසුවෙන්",
@@ -31,7 +35,11 @@ const translations = {
     footerText: "Lanka Lottery Voice යනු ස්වාධීන උපකාරක සංකල්පයකි; එය NLB හෝ DLB නිල සේවාවක් නොවේ.",
     statusTitle: "මෙම පත තවම තහවුරු කළ නොහැක.", statusMessage: "සජීවී නිල ප්‍රතිඵල සහ මෙම ලොතරැයියේ තහවුරු කළ නීති තවම සම්බන්ධ කර නැත. ජයග්‍රහණයක් හෝ පරාජයක් තීරණය කර නැත.",
     statusMeta: "මෙම ආදර්ශය ඡායාරූපය සේවාදායකයකට යවන්නේ නැත. අවසාන ප්‍රතිඵලය නිල මණ්ඩලයෙන් තහවුරු කරන්න.",
-    speechUnavailable: "මෙම බ්‍රවුසරයේ හඬ පහසුකම නොමැත.", noMessage: "කියවීමට ප්‍රතිඵල පණිවිඩයක් නැත.", speechStarted: "ඔබේ උපාංගය සහාය දක්වන්නේ නම් පණිවිඩය කියවනු ඇත."
+    photoInvalidType: "කරුණාකර JPEG, PNG, WebP, AVIF හෝ HEIC ඡායාරූපයක් තෝරන්න.",
+    photoTooLarge: "මෙම ඡායාරූපය 10 MB ට වඩා විශාලයි. කුඩා ඡායාරූපයක් තෝරන්න.",
+    photoDimensions: "මෙම ඡායාරූපයේ විභේදනය වැඩියි. කුඩා හෝ අඩු විභේදන ඡායාරූපයක් තෝරන්න.",
+    photoUnreadable: "මෙම ඡායාරූපය විවෘත කළ නොහැක. වෙනත් ඡායාරූපයක් උත්සාහ කරන්න.",
+        speechUnavailable: "මෙම බ්‍රවුසරයේ හඬ පහසුකම නොමැත.", noMessage: "කියවීමට ප්‍රතිඵල පණිවිඩයක් නැත.", speechStarted: "ඔබේ උපාංගය සහාය දක්වන්නේ නම් පණිවිඩය කියවනු ඇත."
   },
   ta: {
     tagline: "உங்கள் லொத்தர் சீட்டை எளிதாகப் புரிந்துகொள்ளுங்கள்.", languageLabel: "மொழி", stepLabel: "உங்கள் சீட்டை எளிமையாகச் சரிபார்க்கலாம்",
@@ -47,7 +55,11 @@ const translations = {
     footerText: "Lanka Lottery Voice ஒரு சுயாதீன உதவி மாதிரி; இது NLB அல்லது DLB அதிகாரப்பூர்வ சேவை அல்ல.",
     statusTitle: "இந்தச் சீட்டை இன்னும் உறுதிப்படுத்த முடியாது.", statusMessage: "இந்த லொத்தரிக்கான நேரடி அதிகாரப்பூர்வ முடிவுகளும் சரிபார்க்கப்பட்ட விதிகளும் இன்னும் இணைக்கப்படவில்லை. வெற்றி அல்லது தோல்வி என எந்த முடிவும் கூறப்படவில்லை.",
     statusMeta: "இந்த மாதிரி சீட்டுப் படத்தை சேவையகத்திற்கு பதிவேற்றாது. இறுதி முடிவை அதிகாரப்பூர்வ வாரியத்திடம் உறுதிப்படுத்தவும்.",
-    speechUnavailable: "இந்த உலாவியில் குரல் வசதி இல்லை. திரையில் உள்ள செய்தியை வாசிக்கவும்.", noMessage: "வாசிக்க முடிவு செய்தி இல்லை.", speechStarted: "உங்கள் சாதனம் இந்த மொழியை ஆதரித்தால் செய்தி குரலில் வாசிக்கப்படும்."
+    photoInvalidType: "JPEG, PNG, WebP, AVIF அல்லது HEIC படத்தைத் தேர்ந்தெடுக்கவும்.",
+    photoTooLarge: "இந்தப் படம் 10 MB-ஐ விடப் பெரியது. சிறிய படத்தைத் தேர்ந்தெடுக்கவும்.",
+    photoDimensions: "இந்தப் படத்தின் தெளிவுத்திறன் மிக அதிகம். சிறிய அல்லது குறைந்த தெளிவுத்திறன் கொண்ட படத்தைத் தேர்ந்தெடுக்கவும்.",
+    photoUnreadable: "இந்தப் படத்தைத் திறக்க முடியவில்லை. வேறு படத்தை முயற்சிக்கவும்.",
+        speechUnavailable: "இந்த உலாவியில் குரல் வசதி இல்லை. திரையில் உள்ள செய்தியை வாசிக்கவும்.", noMessage: "வாசிக்க முடிவு செய்தி இல்லை.", speechStarted: "உங்கள் சாதனம் இந்த மொழியை ஆதரித்தால் செய்தி குரலில் வாசிக்கப்படும்."
   }
 };
 
@@ -68,27 +80,84 @@ function setLanguage(language) {
     const key = element.dataset.i18n;
     if (dictionary[key]) element.textContent = dictionary[key];
   });
+
+  // Dynamic status text must follow the selected language too.
+  if (form.dataset.submitted === "true") {
+    document.querySelector("#result-panel h2").textContent = dictionary.statusTitle;
+    resultMessage.textContent = dictionary.statusMessage;
+    resultMeta.textContent = dictionary.statusMeta;
+  }
+  speechStatus.textContent = "";
 }
 
 languageSelect.addEventListener("change", () => setLanguage(languageSelect.value));
 
-photoInput.addEventListener("change", () => {
-  const file = photoInput.files && photoInput.files[0];
+const photoFeedback = document.querySelector("#photo-feedback");
+const MAX_PHOTO_BYTES = 10 * 1024 * 1024;
+const MAX_PHOTO_PIXELS = 20_000_000;
+const ALLOWED_PHOTO_TYPES = new Set([
+  "image/jpeg", "image/png", "image/webp", "image/avif", "image/heic", "image/heif"
+]);
+
+function clearPhotoPreview() {
   if (currentObjectUrl) URL.revokeObjectURL(currentObjectUrl);
   currentObjectUrl = null;
-  if (!file) {
-    photoPreview.hidden = true;
+  previewImage.removeAttribute("src");
+  photoPreview.hidden = true;
+}
+
+function rejectPhoto(message) {
+  photoInput.value = "";
+  clearPhotoPreview();
+  photoFeedback.textContent = message;
+}
+
+photoInput.addEventListener("change", async () => {
+  const file = photoInput.files && photoInput.files[0];
+  photoFeedback.textContent = "";
+  clearPhotoPreview();
+  if (!file) return;
+
+  const dictionary = translations[languageSelect.value] || translations.en;
+  if (!ALLOWED_PHOTO_TYPES.has(file.type.toLowerCase())) {
+    rejectPhoto(dictionary.photoInvalidType);
+    return;
+  }
+  if (file.size <= 0 || file.size > MAX_PHOTO_BYTES) {
+    rejectPhoto(dictionary.photoTooLarge);
+    return;
+  }
+
+  const candidateUrl = URL.createObjectURL(file);
+  try {
+    previewImage.src = candidateUrl;
+    if (typeof previewImage.decode === "function") {
+      await previewImage.decode();
+    } else {
+      await new Promise((resolve, reject) => {
+        previewImage.onload = resolve;
+        previewImage.onerror = reject;
+      });
+    }
+    const pixelCount = previewImage.naturalWidth * previewImage.naturalHeight;
+    if (!previewImage.naturalWidth || !previewImage.naturalHeight || pixelCount > MAX_PHOTO_PIXELS) {
+      URL.revokeObjectURL(candidateUrl);
+      previewImage.removeAttribute("src");
+      rejectPhoto(dictionary.photoDimensions);
+      return;
+    }
+    currentObjectUrl = candidateUrl;
+    photoPreview.hidden = false;
+  } catch {
+    URL.revokeObjectURL(candidateUrl);
     previewImage.removeAttribute("src");
-    return;
+    rejectPhoto(dictionary.photoUnreadable);
   }
-  if (!file.type.startsWith("image/")) {
-    photoInput.value = "";
-    photoPreview.hidden = true;
-    return;
-  }
-  currentObjectUrl = URL.createObjectURL(file);
-  previewImage.src = currentObjectUrl;
-  photoPreview.hidden = false;
+});
+
+window.addEventListener("pagehide", () => {
+  if (currentObjectUrl) URL.revokeObjectURL(currentObjectUrl);
+  currentObjectUrl = null;
 });
 
 document.querySelector("#remove-photo").addEventListener("click", () => {
@@ -103,6 +172,7 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   const dictionary = translations[languageSelect.value] || translations.en;
   if (!form.reportValidity()) return;
+  form.dataset.submitted = "true";
   document.querySelector("#result-panel h2").textContent = dictionary.statusTitle;
   resultMessage.textContent = dictionary.statusMessage;
   resultMeta.textContent = dictionary.statusMeta;
