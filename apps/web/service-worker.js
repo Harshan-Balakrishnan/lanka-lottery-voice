@@ -1,5 +1,5 @@
-const CACHE_NAME = "lanka-lottery-voice-shell-v4";
-const SHELL = ["./", "./index.html", "./styles.css", "./app.js", "./manifest.webmanifest", "../../file_0000000066788211955866ab83f3c897.png"];
+const CACHE_NAME = "lanka-lottery-voice-shell-v5";
+const SHELL = ["./", "./index.html", "./styles.css", "./app.js", "./manifest.webmanifest"];
 const STATIC_URLS = new Set(SHELL.map((path) => new URL(path, self.location.href).href));
 
 self.addEventListener("install", (event) => {
