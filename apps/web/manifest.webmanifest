@@ -8,5 +8,18 @@
   "display": "standalone",
   "background_color": "#f3f6fa",
   "theme_color": "#123c75",
-  "icons": []
+  "icons": [
+    {
+      "src": "../../file_0000000066788211955866ab83f3c897.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "../../file_0000000066788211955866ab83f3c897.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
 }
